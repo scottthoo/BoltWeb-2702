@@ -5,7 +5,7 @@ const PrivacyPolicy = () => {
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-          Privacy Policy for 数字能量转换器
+          Privacy Policy for 数字能量分析 - 风水号码
         </h1>
 
         <div className="text-sm text-gray-500 mb-8 text-center">
@@ -18,11 +18,11 @@ const PrivacyPolicy = () => {
               Introduction
             </h2>
             <p className="text-gray-700">
-              Welcome to 数字能量转换器! This Privacy Policy outlines how we
-              collect, use, and protect your personal information when you use
-              our mobile application. We are committed to safeguarding your
-              privacy, and we encourage you to read this policy carefully to
-              understand how your data will be handled.
+              Welcome to 数字能量分析 - 风水号码! This Privacy Policy outlines
+              how we collect, use, and protect your personal information when
+              you use our mobile application. We are committed to safeguarding
+              your privacy, and we encourage you to read this policy carefully
+              to understand how your data will be handled.
             </p>
           </section>
 
@@ -179,8 +179,9 @@ const PrivacyPolicy = () => {
 
           <div className="mt-8 pt-8 border-t border-gray-200">
             <p className="text-gray-700">
-              By using 数字能量转换器, you agree to the terms outlined in this
-              Privacy Policy. Thank you for trusting us with your information.
+              By using 数字能量分析 - 风水号码, you agree to the terms outlined
+              in this Privacy Policy. Thank you for trusting us with your
+              information.
             </p>
           </div>
         </div>
