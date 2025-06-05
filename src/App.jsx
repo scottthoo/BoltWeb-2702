@@ -7,6 +7,7 @@ import Recognition from "./components/Recognition";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import PrivacyPolicy from "./components/PrivacyPolicy";
+import Terms from "./components/Terms";
 
 function App() {
   return (
@@ -28,6 +29,10 @@ function App() {
           <Route
             path="/number-energy-converter-privacy-policy"
             element={<PrivacyPolicy />}
+          />
+          <Route
+            path="/terms"
+            element={<Terms />}
           />
         </Routes>
         <Footer />
