@@ -18,7 +18,8 @@ const Terms = () => {
               应用名称：数字能量分析 - 风水号码
             </h2>
             <p className="text-gray-700">
-              欢迎使用《数字能量分析 - 风水号码》（以下简称"本应用"）。在您下载、访问或使用本应用之前，请仔细阅读以下使用条款（以下简称"本条款"）。通过访问或使用本应用，即表示您已阅读、理解并同意遵守本条款。如您不同意本条款，请勿使用本应用。
+              欢迎使用《数字能量分析 -
+              风水号码》（以下简称"本应用"）。在您下载、访问或使用本应用之前，请仔细阅读以下使用条款（以下简称"本条款"）。通过访问或使用本应用，即表示您已阅读、理解并同意遵守本条款。如您不同意本条款，请勿使用本应用。
             </p>
           </section>
 
@@ -43,8 +44,13 @@ const Terms = () => {
             </p>
             <ul className="list-disc pl-6 mt-4 text-gray-700">
               <li>订阅时长和价格将在购买前明确展示；</li>
-              <li>如提供免费试用，试用期结束后系统将自动从您的 Apple ID 扣费，除非您在试用结束前至少24小时取消；</li>
-              <li>订阅将自动续订，除非您在当前订阅期结束前24小时关闭自动续订功能；</li>
+              <li>
+                如提供免费试用，试用期结束后系统将自动从您的 Apple ID
+                扣费，除非您在试用结束前至少24小时取消；
+              </li>
+              <li>
+                订阅将自动续订，除非您在当前订阅期结束前24小时关闭自动续订功能；
+              </li>
               <li>您可随时在 Apple ID 设置中管理或取消订阅。</li>
             </ul>
             <p className="text-gray-700 mt-4">
@@ -67,7 +73,10 @@ const Terms = () => {
             </h2>
             <p className="text-gray-700">
               本应用将遵守《隐私政策》（
-              <a href="/privacy" className="text-blue-600 hover:text-blue-800">
+              <a
+                href="/number-energy-converter-privacy-policy"
+                className="text-blue-600 hover:text-blue-800"
+              >
                 隐私政策
               </a>
               ），说明我们如何收集、使用与保护您的数据。使用本应用即表示您同意我们的隐私政策。
@@ -113,17 +122,18 @@ const Terms = () => {
               <br />
               📧{" "}
               <a
-                href="mailto:scott@bolt-interactive"
+                href="mailto:scott@bolt-interactive.com"
                 className="text-blue-600 hover:text-blue-800"
               >
-                scott@bolt-interactive
+                scott@bolt-interactive.com
               </a>
             </p>
           </section>
 
           <div className="mt-8 pt-8 border-t border-gray-200">
             <p className="text-gray-700">
-              通过使用数字能量分析 - 风水号码，您确认已阅读并同意本使用条款的所有内容。
+              通过使用数字能量分析 -
+              风水号码，您确认已阅读并同意本使用条款的所有内容。
             </p>
           </div>
         </div>
@@ -132,4 +142,4 @@ const Terms = () => {
   );
 };
 
-export default Terms; 
+export default Terms;
