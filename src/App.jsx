@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Outlet,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
@@ -8,13 +13,26 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import Terms from "./components/Terms";
+import TapShot from "./components/TapShot";
+import TapShotSupport from "./components/TapShotSupport";
+import TapShotPrivacy from "./components/TapShotPrivacy";
+
+const MainLayout = () => (
+  <div className="min-h-screen">
+    <Navbar />
+    <Outlet />
+    <Footer />
+  </div>
+);
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen">
-        <Navbar />
-        <Routes>
+      <Routes>
+        <Route path="/tapshot" element={<TapShot />} />
+        <Route path="/support" element={<TapShotSupport />} />
+        <Route path="/privacy" element={<TapShotPrivacy />} />
+        <Route element={<MainLayout />}>
           <Route
             path="/"
             element={
@@ -30,13 +48,9 @@ function App() {
             path="/number-energy-converter-privacy-policy"
             element={<PrivacyPolicy />}
           />
-          <Route
-            path="/terms"
-            element={<Terms />}
-          />
-        </Routes>
-        <Footer />
-      </div>
+          <Route path="/terms" element={<Terms />} />
+        </Route>
+      </Routes>
     </Router>
   );
 }
