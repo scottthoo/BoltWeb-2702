@@ -60,18 +60,24 @@ const TapShot = () => {
                   headline: "Shoot with a Tap",
                   caption: "Instant response. No setup.",
                   placeholder: "Gameplay Action",
+                  emoji: "⚡️",
+                  videoId: "dQw4w9WgXcQ",
                 },
                 {
                   id: 2,
                   headline: "Built for the Wrist",
                   caption: "Designed for Apple Watch — not shrunk from iPhone.",
                   placeholder: "Watch Interface",
+                  emoji: "⌚️",
+                  videoId: "dQw4w9WgXcQ",
                 },
                 {
                   id: 3,
                   headline: "Pure Satisfaction",
                   caption: "Clean effects, smooth motion, tactile feedback.",
                   placeholder: "Particle Effects",
+                  emoji: "✨",
+                  videoId: "dQw4w9WgXcQ",
                 },
                 {
                   id: 4,
@@ -79,12 +85,25 @@ const TapShot = () => {
                   caption:
                     "Perfect for short breaks, waiting, or winding down.",
                   placeholder: "Quick Session",
+                  emoji: "🏃",
+                  videoId: "dQw4w9WgXcQ",
                 },
                 {
                   id: 5,
                   headline: "Everything Included",
                   caption: "One-time purchase. No ads. No in-app purchases.",
                   placeholder: "No Ads UI",
+                  emoji: "💎",
+                  videoId: "dQw4w9WgXcQ",
+                },
+                {
+                  id: 6,
+                  headline: "Community Challenges",
+                  caption:
+                    "Compete with friends and top the global leaderboards.",
+                  placeholder: "Leaderboard",
+                  emoji: "🏆",
+                  videoId: "dQw4w9WgXcQ",
                 },
               ].map((shot) => (
                 <div
@@ -95,18 +114,24 @@ const TapShot = () => {
                   <div className="relative aspect-[4/5] w-full max-w-[260px] rounded-[2.5rem] border-[8px] border-zinc-800 bg-black shadow-2xl transition-transform duration-500 ease-out group-hover:scale-105 group-hover:shadow-zinc-900/50 overflow-hidden ring-1 ring-white/10">
                     {/* Screen Content */}
                     <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center overflow-hidden">
-                      {/* Placeholder for Screenshot */}
-                      {/* REPLACE THIS DIV WITH YOUR IMG TAG LATER */}
-                      <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-zinc-800 to-zinc-900">
-                        <div className="w-12 h-12 rounded-full bg-zinc-700/50 mb-4 flex items-center justify-center">
-                          <span className="text-2xl">⚡️</span>
+                      <div className="w-full aspect-video relative bg-zinc-950">
+                        <div
+                          className="absolute inset-0 bg-zinc-800 flex items-center justify-center"
+                          aria-label="Video loading placeholder"
+                        >
+                          <span className="text-4xl opacity-20 grayscale">
+                            {shot.emoji}
+                          </span>
                         </div>
-                        <span className="text-zinc-500 text-xs font-mono uppercase tracking-wider mb-2">
-                          {shot.placeholder}
-                        </span>
-                        <span className="text-zinc-600 text-[10px]">
-                          [Insert Screenshot]
-                        </span>
+                        <iframe
+                          className="absolute inset-0 w-full h-full"
+                          src={`https://www.youtube.com/embed/${shot.videoId}?autoplay=1&mute=1&loop=1&playlist=${shot.videoId}&controls=0&playsinline=1&rel=0`}
+                          title={shot.headline}
+                          aria-label={`Video demonstration of ${shot.headline}`}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          loading="lazy"
+                        ></iframe>
                       </div>
                     </div>
 
