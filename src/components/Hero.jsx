@@ -1,34 +1,101 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+
+const whatsappLink =
+  "https://wa.me/601115497865?text=Hi%20Scott%2C%20I%20would%20like%20to%20know%20more%20about%20AI%20automation";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
-      <div className="absolute inset-0 w-full h-full">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa')] bg-cover bg-center opacity-10" />
+    <section className="relative overflow-hidden bg-slate-950 text-white">
+      <div className="absolute inset-0">
+        <div className="absolute -top-20 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-orange-500/20 blur-[160px]" />
+        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-sky-500/20 blur-[140px]" />
       </div>
-      
-      <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Building The Future With
-            <span className="text-orange-500"> AI</span>
-          </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-            We craft intelligent solutions that transform businesses through cutting-edge AI technology and exceptional user experiences.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-orange-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-600 transition-colors"
+
+      <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
           >
-            Start Your Project
-          </motion.button>
-        </motion.div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-orange-200">
+              AI Automation Studio · Kuala Lumpur
+            </span>
+            <div>
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+                Automate the work you do every day with intelligent AI systems.
+              </h1>
+              <p className="text-lg text-slate-300 mt-5">
+                Bolt Interactive builds AI-powered automation that connects your
+                tools, data, and teams. Launch smarter workflows, reduce manual
+                effort, and scale impact with confidence.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="#contact"
+                className="bg-orange-500 hover:bg-orange-400 text-white px-6 py-3 rounded-full font-semibold transition-colors"
+              >
+                Book a discovery call
+              </a>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noreferrer"
+                className="border border-white/20 px-6 py-3 rounded-full font-semibold hover:border-white/40 transition-colors"
+              >
+                WhatsApp Scott
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="space-y-6"
+          >
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+              <p className="text-sm uppercase tracking-[0.2em] text-slate-400">
+                Live automation board
+              </p>
+              <div className="mt-6 space-y-4">
+                {[
+                  "Lead qualification agent",
+                  "Invoice reconciliation",
+                  "Customer success summaries",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center justify-between rounded-2xl bg-slate-900/70 px-4 py-3"
+                  >
+                    <span className="text-slate-200">{item}</span>
+                    <span className="text-xs text-emerald-300 bg-emerald-500/10 px-3 py-1 rounded-full">
+                      Live
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { label: "Automations deployed", value: "120+" },
+                { label: "Avg. ROI uplift", value: "6.4x" },
+                { label: "Ops hours saved", value: "18k" },
+                { label: "Automation accuracy", value: "98%" },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4"
+                >
+                  <p className="text-2xl font-semibold">{stat.value}</p>
+                  <p className="text-sm text-slate-400 mt-1">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
