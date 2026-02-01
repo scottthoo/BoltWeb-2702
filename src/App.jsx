@@ -31,7 +31,7 @@ function App() {
       <Routes>
         <Route path="/tapshot" element={<TapShot />} />
         <Route path="/support" element={<TapShotSupport />} />
-        <Route path="/privacy" element={<TapShotPrivacy />} />
+        <Route path="/tap-shot-privacy" element={<TapShotPrivacy />} />
         <Route element={<MainLayout />}>
           <Route
             path="/"
