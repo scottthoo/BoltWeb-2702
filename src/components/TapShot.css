@@ -7,3 +7,8 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.logo-wordmark {
+  font-family: "Space Grotesk", "SF Pro Display", "Segoe UI", sans-serif;
+  letter-spacing: 0.02em;
+}

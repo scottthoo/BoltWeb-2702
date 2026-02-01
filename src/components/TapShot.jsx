@@ -18,8 +18,8 @@ const TapShot = () => {
               alt="TapShot App Icon"
               className="h-10 w-10 rounded-xl shadow-lg ring-1 ring-white/10"
             />
-            <span className="font-bold text-lg tracking-tight text-white hidden md:block">
-              TapShot
+            <span className="logo-wordmark text-lg font-semibold text-white hidden md:block">
+              Bolt Interactive
             </span>
           </div>
 
