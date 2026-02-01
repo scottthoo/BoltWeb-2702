@@ -100,7 +100,7 @@ const TapShotSupport = () => {
             <span className="text-sm text-gray-500">Let us fix it for you</span>
           </button>
           
-          <Link to="/privacy" className="flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow hover:border-green-300 group">
+          <Link to="/tap-shot-privacy" className="flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow hover:border-green-300 group">
             <div className="w-12 h-12 bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-4 group-hover:bg-green-100 transition-colors">
               <Shield className="w-6 h-6" />
             </div>
@@ -224,7 +224,7 @@ const TapShotSupport = () => {
           <span className="font-semibold text-white">Tap Shot</span> — Watch Shooter
         </div>
         <div className="flex justify-center gap-6 mb-8">
-          <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+          <Link to="/tap-shot-privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
           <a href="mailto:scott@bolt-interactive.com" className="hover:text-white transition-colors">Contact</a>
         </div>
         <p>Version 1.0.2 • Last updated: Jan 2026</p>
