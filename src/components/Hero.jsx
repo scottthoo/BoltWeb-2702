@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const whatsappLink =
-  "https://wa.me/601115497865?text=Hi%20Scott%2C%20I%20would%20like%20to%20know%20more%20about%20AI%20automation";
+  "https://wa.me/601115497865?text=Hi%20Scott%2C%20I%20would%20like%20to%20know%20more%20about%20AI%20systems%20architecture";
 
 export default function Hero() {
   return (
@@ -20,16 +20,16 @@ export default function Hero() {
             className="space-y-8"
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-orange-200">
-              AI Automation Studio · Kuala Lumpur
+              Private AI Systems Architect · Kuala Lumpur
             </span>
             <div>
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                Automate the work you do every day with intelligent AI systems.
+                AI systems that reduce friction and accelerate execution at the CEO level.
               </h1>
               <p className="text-lg text-slate-300 mt-5">
-                Bolt Interactive builds AI-powered automation that connects your
-                tools, data, and teams. Launch smarter workflows, reduce manual
-                effort, and scale impact with confidence.
+                I design and implement private AI systems for Founders, COOs, Sales Directors,
+                and Operations Heads — eliminating operational drag and giving leadership
+                the speed and clarity to execute at a higher level.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-4">
@@ -37,7 +37,7 @@ export default function Hero() {
                 href="#contact"
                 className="bg-orange-500 hover:bg-orange-400 text-white px-6 py-3 rounded-full font-semibold transition-colors"
               >
-                Book a discovery call
+                Book a strategy call
               </a>
               <a
                 href={whatsappLink}
@@ -58,13 +58,13 @@ export default function Hero() {
           >
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
               <p className="text-sm uppercase tracking-[0.2em] text-slate-400">
-                Live automation board
+                Active CEO-level systems
               </p>
               <div className="mt-6 space-y-4">
                 {[
-                  "Lead qualification agent",
-                  "Invoice reconciliation",
-                  "Customer success summaries",
+                  "Revenue pipeline intelligence",
+                  "Operational command dashboard",
+                  "Executive decision support agent",
                 ].map((item) => (
                   <div
                     key={item}
@@ -80,10 +80,10 @@ export default function Hero() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { label: "Automations deployed", value: "120+" },
+                { label: "AI systems deployed", value: "120+" },
                 { label: "Avg. ROI uplift", value: "6.4x" },
-                { label: "Ops hours saved", value: "18k" },
-                { label: "Automation accuracy", value: "98%" },
+                { label: "Exec hours reclaimed", value: "18k" },
+                { label: "System accuracy", value: "98%" },
               ].map((stat) => (
                 <div
                   key={stat.label}

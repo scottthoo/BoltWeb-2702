@@ -2,19 +2,19 @@ import { motion } from "framer-motion";
 
 const highlights = [
   {
-    title: "Automation coverage",
-    value: "65+ workflows",
-    description: "Across sales, ops, finance, and customer success.",
+    title: "Who I work with",
+    value: "C-Suite only",
+    description: "Founders, COOs, Sales Directors, and Operations Heads — not staff level.",
   },
   {
     title: "Average payback",
     value: "< 90 days",
-    description: "Time-to-value for automation deployments.",
+    description: "Time-to-live for CEO-level AI systems that deliver measurable ROI.",
   },
   {
-    title: "Human-in-the-loop",
+    title: "Leadership in control",
     value: "100%",
-    description: "We keep teams in control with smart approvals.",
+    description: "Every system keeps decision-making authority with the leadership team.",
   },
 ];
 
@@ -30,14 +30,14 @@ export default function Recognition() {
         >
           <div className="space-y-8">
             <p className="text-orange-300 font-semibold tracking-wide uppercase">
-              Proof & recognition
+              Built for leaders who move fast
             </p>
             <h2 className="text-4xl md:text-5xl font-bold mt-4">
-              Trusted to deliver automation that scales
+              Private AI systems trusted at the highest level
             </h2>
             <p className="text-slate-300 mt-5">
-              Our AI automation work has been featured for its impact on product
-              velocity, customer experience, and operational efficiency.
+              I don't do small tasks or generic chatbot builds. I architect private AI systems
+              for leaders who need real operational leverage — and the execution speed to match their ambition.
             </p>
             <div className="grid gap-4">
               {highlights.map((item) => (

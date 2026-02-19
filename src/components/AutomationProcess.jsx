@@ -3,29 +3,29 @@ import { FiLayers, FiCpu, FiTrendingUp } from "react-icons/fi";
 
 const steps = [
   {
-    title: "Discover",
+    title: "Diagnose",
     description:
-      "Map the highest-impact workflows, data sources, and decision points to automate.",
+      "Map the CEO-level friction points, decision bottlenecks, and execution gaps that are costing the business speed and clarity.",
     icon: <FiLayers />,
   },
   {
-    title: "Automate",
+    title: "Architect",
     description:
-      "Design AI agents, integrations, and orchestration flows that eliminate manual steps.",
+      "Design private AI systems tailored to leadership workflows — built around how founders and executives actually operate.",
     icon: <FiCpu />,
   },
   {
-    title: "Scale",
+    title: "Deploy & Compound",
     description:
-      "Deploy continuous optimization with analytics, monitoring, and performance tuning.",
+      "Launch systems that learn, expand, and compound results as the business grows — with full leadership visibility at every stage.",
     icon: <FiTrendingUp />,
   },
 ];
 
 const stats = [
-  { label: "Avg. hours saved weekly", value: "42+" },
-  { label: "Automation accuracy", value: "98%" },
-  { label: "Time-to-value", value: "30 days" },
+  { label: "Exec hours reclaimed weekly", value: "42+" },
+  { label: "System accuracy", value: "98%" },
+  { label: "Time-to-live system", value: "30 days" },
 ];
 
 export default function AutomationProcess() {
@@ -39,14 +39,14 @@ export default function AutomationProcess() {
           className="text-center mb-16"
         >
           <p className="text-orange-300 font-semibold tracking-wide uppercase">
-            Automation Playbook
+            The Architect's Approach
           </p>
           <h2 className="text-4xl md:text-5xl font-bold mt-4">
-            Launch AI automation that compounds results
+            AI systems that compound execution speed at the top
           </h2>
           <p className="text-slate-300 mt-5 max-w-3xl mx-auto">
-            We design end-to-end automation that connects your people, data, and
-            tools into a single intelligent operating system.
+            I work directly with the leadership layer — not staff — to build private AI
+            systems that eliminate friction and give executives back their highest-leverage time.
           </p>
         </motion.div>
 
