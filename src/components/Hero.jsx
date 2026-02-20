@@ -1,7 +1,29 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const whatsappLink =
   "https://wa.me/601115497865?text=Hi%20Scott%2C%20I%20would%20like%20to%20discuss%20strategic%20AI%20implementation";
+
+const Avatar = ({ src, alt }) => {
+  const [error, setError] = useState(false);
+
+  if (error) {
+    return (
+      <div className="w-8 h-8 rounded-full bg-slate-700 border border-slate-900 flex items-center justify-center text-xs text-slate-400">
+        ?
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className="w-8 h-8 rounded-full border border-slate-900 object-cover bg-slate-700"
+      onError={() => setError(true)}
+    />
+  );
+};
 
 export default function Hero() {
   return (
@@ -109,9 +131,18 @@ export default function Hero() {
               <div className="mt-8 pt-6 border-t border-white/5">
                 <div className="flex items-center gap-4 text-sm text-slate-400">
                   <div className="flex -space-x-2">
-                    <div className="w-8 h-8 rounded-full bg-slate-700 border border-slate-900"></div>
-                    <div className="w-8 h-8 rounded-full bg-slate-600 border border-slate-900"></div>
-                    <div className="w-8 h-8 rounded-full bg-slate-500 border border-slate-900"></div>
+                    <Avatar
+                      src="/images/leadership/executive-man.jpg"
+                      alt="Executive Partner"
+                    />
+                    <Avatar
+                      src="/images/leadership/executive-woman.jpg"
+                      alt="Executive Partner"
+                    />
+                    <Avatar
+                      src="/images/leadership/executive-meeting.jpg"
+                      alt="Executive Partner"
+                    />
                   </div>
                   <p>Partnering with visionary leadership teams</p>
                 </div>
