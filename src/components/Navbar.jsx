@@ -24,22 +24,22 @@ export default function Navbar() {
             href="/#services"
             className="hover:text-orange-500 transition-colors"
           >
-            Systems
+            Services
           </a>
           <a href="/#about" className="hover:text-orange-500 transition-colors">
-            Approach
+            About
           </a>
           <a
             href="/#recognition"
             className="hover:text-orange-500 transition-colors"
           >
-            Results
+            Recognition
           </a>
           <a
             href="/#contact"
             className="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-colors"
           >
-            Work with Scott
+            Contact Us
           </a>
         </div>
       </div>

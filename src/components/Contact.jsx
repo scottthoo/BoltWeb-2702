@@ -31,7 +31,7 @@ const contactInfo = [
 ];
 
 const whatsappLink =
-  "https://wa.me/601115497865?text=Hi%20Scott%2C%20I%20would%20like%20to%20discuss%20an%20AI%20systems%20architecture%20engagement";
+  "https://wa.me/601115497865?text=Hi%20Scott%2C%20I%20would%20like%20to%20know%20more%20about%20AI%20automation";
 
 export default function Contact() {
   return (
@@ -45,14 +45,13 @@ export default function Contact() {
         >
           <div className="space-y-6">
             <span className="inline-flex items-center gap-2 rounded-full border border-orange-100 bg-orange-50 px-4 py-2 text-sm text-orange-600">
-              Work with Scott
+              Contact Bolt Interactive
             </span>
             <div>
-              <h2 className="text-4xl font-bold mb-4">Let's build your AI operating system</h2>
+              <h2 className="text-4xl font-bold mb-4">Let’s automate your next win</h2>
               <p className="text-gray-600 text-lg">
-                If you're a Founder, COO, Sales Director, or Operations Head looking to
-                eliminate friction and accelerate execution — let's talk about what an
-                AI system architecture engagement looks like for your business.
+                Tell us about the workflows you want to streamline, and we’ll
+                craft an AI automation plan that fits your business goals.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-4">
@@ -63,7 +62,7 @@ export default function Contact() {
                 className="inline-flex items-center gap-3 bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors"
               >
                 <FaWhatsapp />
-                WhatsApp Scott directly
+                Contact us on WhatsApp
               </a>
               <a
                 href="mailto:scott@bolt-interactive.com"
