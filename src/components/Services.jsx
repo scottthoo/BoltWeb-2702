@@ -5,39 +5,39 @@ import { FiCloud, FiShare2, FiShield } from "react-icons/fi";
 const services = [
   {
     icon: <FaRobot />,
-    title: "AI Automation Strategy",
+    title: "Executive Systems Architecture",
     description:
-      "Identify high-ROI automation opportunities and build a roadmap that aligns with your teams.",
+      "Design the AI infrastructure that powers CEO-level decisions — from data inputs to strategic outputs.",
   },
   {
     icon: <FiShare2 />,
-    title: "Workflow Orchestration",
+    title: "Revenue Intelligence Systems",
     description:
-      "Connect your CRM, inbox, spreadsheets, and databases into coordinated AI-driven flows.",
+      "Give Sales Directors a live AI layer across pipeline, CRM, and market signals to accelerate deal velocity.",
   },
   {
     icon: <FiCloud />,
-    title: "Custom AI Agents",
+    title: "Operational Command Systems",
     description:
-      "Deploy assistants that summarize, route, and act on information across your business.",
+      "Build a unified AI operating layer for COOs — connecting workflows, teams, and metrics into one intelligent view.",
   },
   {
     icon: <FaCode />,
-    title: "Product & Web Experiences",
+    title: "Private Executive AI Agents",
     description:
-      "Launch scalable web apps that showcase automation and keep stakeholders in the loop.",
+      "Deploy personal AI agents that brief, synthesize, and surface the right information for leadership — before they ask.",
   },
   {
     icon: <FaMobileAlt />,
-    title: "Mobile Automation",
+    title: "Founder's AI Stack",
     description:
-      "Bring automation insights to the frontline with mobile-first dashboards and alerts.",
+      "Build the private AI infrastructure a founder needs to scale decision-making and execution without growing headcount.",
   },
   {
     icon: <FiShield />,
-    title: "Compliance & Security",
+    title: "AI Governance & Security",
     description:
-      "Design automation with governance, data privacy, and observability baked in.",
+      "Ensure your AI systems are secure, auditable, and board-ready with governance frameworks built from the ground up.",
   },
 ];
 
@@ -52,14 +52,14 @@ export default function Services() {
           className="text-center mb-16"
         >
           <p className="text-orange-500 font-semibold tracking-wide uppercase">
-            What we build
+            What I architect
           </p>
           <h2 className="text-4xl md:text-5xl font-bold mt-4">
-            End-to-end AI automation services
+            AI systems built for the leadership layer
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            From discovery to deployment, we deliver intelligent systems that
-            help teams move faster and automate the busywork.
+            Not generic tools. Not staff-level automation. Private AI systems designed
+            specifically for Founders, COOs, Sales Directors, and Operations Heads.
           </p>
         </motion.div>
 
