@@ -1,5 +1,76 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./TapShot.css";
+
+const VideoCover = ({ videoId, ratio = 16 / 9, posterEmoji, title }) => {
+  const containerRef = useRef(null);
+  const [dimensions, setDimensions] = useState({
+    width: "100%",
+    height: "100%",
+    top: 0,
+    left: 0,
+  });
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (!containerRef.current) return;
+      const { clientWidth: cw, clientHeight: ch } = containerRef.current;
+      const containerRatio = cw / ch;
+
+      let w, h, t, l;
+
+      if (containerRatio > ratio) {
+        // Container is wider than video -> Fit width, crop height
+        w = cw;
+        h = cw / ratio;
+        t = (ch - h) / 2;
+        l = 0;
+      } else {
+        // Container is taller than video -> Fit height, crop width
+        h = ch;
+        w = ch * ratio;
+        l = (cw - w) / 2;
+        t = 0;
+      }
+
+      setDimensions({ width: w, height: h, top: t, left: l });
+    };
+
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, [ratio]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="absolute inset-0 overflow-hidden bg-zinc-950"
+    >
+      <div
+        className="absolute inset-0 flex items-center justify-center bg-zinc-800"
+        aria-label="Video loading placeholder"
+      >
+        <span className="text-4xl opacity-20 grayscale">{posterEmoji}</span>
+      </div>
+      <iframe
+        style={{
+          position: "absolute",
+          width: `${dimensions.width}px`,
+          height: `${dimensions.height}px`,
+          top: `${dimensions.top}px`,
+          left: `${dimensions.left}px`,
+          maxWidth: "none",
+          maxHeight: "none",
+        }}
+        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&playsinline=1&rel=0`}
+        title={title}
+        aria-label={`Video demonstration of ${title}`}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        loading="lazy"
+      ></iframe>
+    </div>
+  );
+};
 
 const TapShot = () => {
   useEffect(() => {
@@ -62,6 +133,7 @@ const TapShot = () => {
                   placeholder: "Gameplay Action",
                   emoji: "⚡️",
                   videoId: "dQw4w9WgXcQ",
+                  ratio: 16 / 9,
                 },
                 {
                   id: 2,
@@ -70,6 +142,7 @@ const TapShot = () => {
                   placeholder: "Watch Interface",
                   emoji: "⌚️",
                   videoId: "dQw4w9WgXcQ",
+                  ratio: 9 / 16,
                 },
                 {
                   id: 3,
@@ -78,6 +151,7 @@ const TapShot = () => {
                   placeholder: "Particle Effects",
                   emoji: "✨",
                   videoId: "dQw4w9WgXcQ",
+                  ratio: 1,
                 },
                 {
                   id: 4,
@@ -87,6 +161,7 @@ const TapShot = () => {
                   placeholder: "Quick Session",
                   emoji: "🏃",
                   videoId: "dQw4w9WgXcQ",
+                  ratio: 4 / 3,
                 },
                 {
                   id: 5,
@@ -95,6 +170,7 @@ const TapShot = () => {
                   placeholder: "No Ads UI",
                   emoji: "💎",
                   videoId: "dQw4w9WgXcQ",
+                  ratio: 9 / 16,
                 },
                 {
                   id: 6,
@@ -104,6 +180,7 @@ const TapShot = () => {
                   placeholder: "Leaderboard",
                   emoji: "🏆",
                   videoId: "dQw4w9WgXcQ",
+                  ratio: 16 / 9,
                 },
               ].map((shot) => (
                 <div
@@ -113,25 +190,14 @@ const TapShot = () => {
                   {/* Watch Frame */}
                   <div className="relative aspect-[4/5] w-full max-w-[260px] rounded-[2.5rem] border-[8px] border-zinc-800 bg-black shadow-2xl transition-transform duration-500 ease-out group-hover:scale-105 group-hover:shadow-zinc-900/50 overflow-hidden ring-1 ring-white/10">
                     {/* Screen Content */}
-                    <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center overflow-hidden">
-                      <div className="w-full aspect-video relative bg-zinc-950">
-                        <div
-                          className="absolute inset-0 bg-zinc-800 flex items-center justify-center"
-                          aria-label="Video loading placeholder"
-                        >
-                          <span className="text-4xl opacity-20 grayscale">
-                            {shot.emoji}
-                          </span>
-                        </div>
-                        <iframe
-                          className="absolute inset-0 w-full h-full"
-                          src={`https://www.youtube.com/embed/${shot.videoId}?autoplay=1&mute=1&loop=1&playlist=${shot.videoId}&controls=0&playsinline=1&rel=0`}
+                    <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center overflow-hidden p-3 md:p-4 lg:p-6 video-container">
+                      <div className="w-full h-full relative bg-zinc-950 rounded-[1rem] shadow-xl ring-1 ring-white/10 overflow-hidden">
+                        <VideoCover
+                          videoId={shot.videoId}
+                          ratio={shot.ratio}
+                          posterEmoji={shot.emoji}
                           title={shot.headline}
-                          aria-label={`Video demonstration of ${shot.headline}`}
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                          loading="lazy"
-                        ></iframe>
+                        />
                       </div>
                     </div>
 
