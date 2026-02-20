@@ -1,43 +1,49 @@
 import { motion } from "framer-motion";
-import { FaRobot, FaCode, FaMobileAlt } from "react-icons/fa";
-import { FiCloud, FiShare2, FiShield } from "react-icons/fi";
+import {
+  FaChessKing,
+  FaMap,
+  FaCogs,
+  FaNetworkWired,
+  FaChartLine,
+  FaShieldAlt,
+} from "react-icons/fa";
 
 const services = [
   {
-    icon: <FaRobot />,
-    title: "AI Automation Strategy",
+    icon: <FaChessKing />,
+    title: "CEO-Level AI Consultation",
     description:
-      "Identify high-ROI automation opportunities and build a roadmap that aligns with your teams.",
+      "Strategic advisory to identify high-leverage AI opportunities that align with your long-term business vision and competitive positioning.",
   },
   {
-    icon: <FiShare2 />,
-    title: "Workflow Orchestration",
+    icon: <FaMap />,
+    title: "Implementation Roadmaps",
     description:
-      "Connect your CRM, inbox, spreadsheets, and databases into coordinated AI-driven flows.",
+      "Detailed execution plans that bridge the gap between executive strategy and technical deployment, ensuring measurable ROI.",
   },
   {
-    icon: <FiCloud />,
-    title: "Custom AI Agents",
+    icon: <FaCogs />,
+    title: "Operational Transformation",
     description:
-      "Deploy assistants that summarize, route, and act on information across your business.",
+      "Re-engineering core business processes with AI to drastically reduce friction, overhead, and manual intervention.",
   },
   {
-    icon: <FaCode />,
-    title: "Product & Web Experiences",
+    icon: <FaNetworkWired />,
+    title: "Custom AI Architectures",
     description:
-      "Launch scalable web apps that showcase automation and keep stakeholders in the loop.",
+      "Designing proprietary AI systems and agentic workflows that create a defensible competitive advantage for your organization.",
   },
   {
-    icon: <FaMobileAlt />,
-    title: "Mobile Automation",
+    icon: <FaChartLine />,
+    title: "Executive Dashboards",
     description:
-      "Bring automation insights to the frontline with mobile-first dashboards and alerts.",
+      "Real-time intelligence systems that provide granular visibility and clarity for high-stakes executive decision making.",
   },
   {
-    icon: <FiShield />,
-    title: "Compliance & Security",
+    icon: <FaShieldAlt />,
+    title: "AI Governance & Risk",
     description:
-      "Design automation with governance, data privacy, and observability baked in.",
+      "Ensuring your AI initiatives are secure, compliant, and aligned with organizational values and global standards.",
   },
 ];
 
@@ -52,14 +58,14 @@ export default function Services() {
           className="text-center mb-16"
         >
           <p className="text-orange-500 font-semibold tracking-wide uppercase">
-            What we build
+            Strategic Initiatives
           </p>
           <h2 className="text-4xl md:text-5xl font-bold mt-4">
-            End-to-end AI automation services
+            AI transformation for the C-Suite
           </h2>
-          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            From discovery to deployment, we deliver intelligent systems that
-            help teams move faster and automate the busywork.
+          <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">
+            We move beyond simple automation to deliver comprehensive AI
+            strategies that reshape how your organization creates value.
           </p>
         </motion.div>
 
@@ -71,13 +77,17 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.12 }}
-              className="group rounded-3xl border border-gray-100 bg-gradient-to-br from-white via-white to-orange-50/40 p-8 shadow-sm hover:shadow-xl transition-shadow"
+              className="group rounded-3xl border border-gray-100 bg-gradient-to-br from-white via-white to-orange-50/40 p-10 shadow-sm hover:shadow-xl transition-all duration-300"
             >
-              <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-100 text-orange-500 text-2xl mb-6 group-hover:scale-105 transition-transform">
+              <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-orange-100 text-orange-500 text-2xl mb-8 group-hover:scale-105 transition-transform">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
+              <h3 className="text-2xl font-semibold mb-4 text-slate-900">
+                {service.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </div>

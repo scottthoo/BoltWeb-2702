@@ -2,19 +2,19 @@ import { motion } from "framer-motion";
 
 const highlights = [
   {
-    title: "Automation coverage",
-    value: "65+ workflows",
-    description: "Across sales, ops, finance, and customer success.",
+    title: "Enterprise Logistics",
+    value: "40% Reduction",
+    description: "In supply chain operational friction within 3 months.",
   },
   {
-    title: "Average payback",
-    value: "< 90 days",
-    description: "Time-to-value for automation deployments.",
+    title: "FinTech Scaleup",
+    value: "3x Acceleration",
+    description: "In customer onboarding speed via intelligent agents.",
   },
   {
-    title: "Human-in-the-loop",
-    value: "100%",
-    description: "We keep teams in control with smart approvals.",
+    title: "Healthcare Ops",
+    value: "100% Compliance",
+    description: "Automated regulatory reporting and audit trails.",
   },
 ];
 
@@ -26,31 +26,42 @@ export default function Recognition() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl"
+          className="max-w-4xl"
         >
-          <div className="space-y-8">
-            <p className="text-orange-300 font-semibold tracking-wide uppercase">
-              Proof & recognition
-            </p>
-            <h2 className="text-4xl md:text-5xl font-bold mt-4">
-              Trusted to deliver automation that scales
-            </h2>
-            <p className="text-slate-300 mt-5">
-              Our AI automation work has been featured for its impact on product
-              velocity, customer experience, and operational efficiency.
-            </p>
-            <div className="grid gap-4">
-              {highlights.map((item) => (
-                <div
+          <div className="space-y-10">
+            <div>
+              <p className="text-orange-300 font-semibold tracking-wide uppercase">
+                Executive Impact
+              </p>
+              <h2 className="text-4xl md:text-5xl font-bold mt-4 leading-tight">
+                Delivering outcomes that matter to the board
+              </h2>
+              <p className="text-slate-300 mt-6 text-lg max-w-2xl">
+                We measure our success by the tangible business value we create.
+                Here is the impact of our recent strategic implementations.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {highlights.map((item, index) => (
+                <motion.div
                   key={item.title}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-5"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-8 hover:bg-white/10 transition-colors"
                 >
-                  <p className="text-sm text-slate-400 uppercase tracking-[0.2em]">
+                  <p className="text-sm text-orange-200 uppercase tracking-[0.1em] font-medium mb-4">
                     {item.title}
                   </p>
-                  <p className="text-2xl font-semibold mt-2">{item.value}</p>
-                  <p className="text-slate-400 mt-2">{item.description}</p>
-                </div>
+                  <p className="text-3xl font-bold text-white mb-3">
+                    {item.value}
+                  </p>
+                  <p className="text-slate-400 leading-relaxed">
+                    {item.description}
+                  </p>
+                </motion.div>
               ))}
             </div>
           </div>

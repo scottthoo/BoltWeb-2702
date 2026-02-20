@@ -1,31 +1,31 @@
 import { motion } from "framer-motion";
-import { FiLayers, FiCpu, FiTrendingUp } from "react-icons/fi";
+import { FiTarget, FiLayout, FiTrendingUp } from "react-icons/fi";
 
 const steps = [
   {
-    title: "Discover",
+    title: "Strategic Audit",
     description:
-      "Map the highest-impact workflows, data sources, and decision points to automate.",
-    icon: <FiLayers />,
+      "We assess your current operational friction, data readiness, and identify high-value AI insertion points.",
+    icon: <FiTarget />,
   },
   {
-    title: "Automate",
+    title: "Architecture Design",
     description:
-      "Design AI agents, integrations, and orchestration flows that eliminate manual steps.",
-    icon: <FiCpu />,
+      "We blueprint a custom AI ecosystem that integrates seamlessly with your existing enterprise stack and workflows.",
+    icon: <FiLayout />,
   },
   {
-    title: "Scale",
+    title: "Execution & Scale",
     description:
-      "Deploy continuous optimization with analytics, monitoring, and performance tuning.",
+      "We lead the technical implementation and oversee organizational change management to ensure adoption.",
     icon: <FiTrendingUp />,
   },
 ];
 
 const stats = [
-  { label: "Avg. hours saved weekly", value: "42+" },
-  { label: "Automation accuracy", value: "98%" },
-  { label: "Time-to-value", value: "30 days" },
+  { label: "Reduction in OpEx", value: "30-50%" },
+  { label: "Increase in Execution Speed", value: "3x" },
+  { label: "Typical ROI Timeline", value: "< 6 Mo" },
 ];
 
 export default function AutomationProcess() {
@@ -39,14 +39,14 @@ export default function AutomationProcess() {
           className="text-center mb-16"
         >
           <p className="text-orange-300 font-semibold tracking-wide uppercase">
-            Automation Playbook
+            Implementation Framework
           </p>
           <h2 className="text-4xl md:text-5xl font-bold mt-4">
-            Launch AI automation that compounds results
+            From vision to operational reality
           </h2>
-          <p className="text-slate-300 mt-5 max-w-3xl mx-auto">
-            We design end-to-end automation that connects your people, data, and
-            tools into a single intelligent operating system.
+          <p className="text-slate-300 mt-5 max-w-3xl mx-auto text-lg">
+            Our proprietary methodology ensures that AI initiatives deliver
+            tangible business outcomes without disrupting your core operations.
           </p>
         </motion.div>
 
@@ -60,16 +60,18 @@ export default function AutomationProcess() {
               transition={{ delay: index * 0.15 }}
               className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur"
             >
-              <div className="w-12 h-12 rounded-2xl bg-orange-500/20 flex items-center justify-center text-2xl text-orange-300 mb-6">
+              <div className="w-14 h-14 rounded-2xl bg-orange-500/20 flex items-center justify-center text-3xl text-orange-300 mb-6">
                 {step.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
-              <p className="text-slate-300">{step.description}</p>
+              <h3 className="text-2xl font-semibold mb-4">{step.title}</h3>
+              <p className="text-slate-300 leading-relaxed text-lg">
+                {step.description}
+              </p>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-16 grid md:grid-cols-3 gap-6">
+        <div className="mt-20 grid md:grid-cols-3 gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -77,10 +79,10 @@ export default function AutomationProcess() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 p-6 border border-white/10"
+              className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 p-8 border border-white/10 text-center md:text-left"
             >
-              <p className="text-3xl font-bold text-white">{stat.value}</p>
-              <p className="text-slate-400 mt-2">{stat.label}</p>
+              <p className="text-4xl font-bold text-white mb-2">{stat.value}</p>
+              <p className="text-slate-400 font-medium">{stat.label}</p>
             </motion.div>
           ))}
         </div>
