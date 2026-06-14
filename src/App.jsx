@@ -6,6 +6,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import ScrollProgress from "./components/effects/ScrollProgress";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
 import AutomationProcess from "./components/AutomationProcess";
@@ -20,6 +21,7 @@ import TapShotPrivacy from "./components/TapShotPrivacy";
 
 const MainLayout = () => (
   <div className="min-h-screen">
+    <ScrollProgress />
     <Navbar />
     <Outlet />
     <Footer />

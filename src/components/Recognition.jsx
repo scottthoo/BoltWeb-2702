@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import SpotlightCard from "./effects/SpotlightCard";
+import Counter from "./effects/Counter";
 
 const highlights = [
   {
@@ -44,24 +46,27 @@ export default function Recognition() {
 
             <div className="grid md:grid-cols-3 gap-6">
               {highlights.map((item, index) => (
-                <motion.div
+                <SpotlightCard
                   key={item.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -6 }}
+                  glow="56, 189, 248"
                   className="rounded-2xl border border-white/10 bg-white/5 p-8 hover:bg-white/10 transition-colors"
                 >
                   <p className="text-sm text-orange-200 uppercase tracking-[0.1em] font-medium mb-4">
                     {item.title}
                   </p>
-                  <p className="text-3xl font-bold text-white mb-3">
-                    {item.value}
-                  </p>
+                  <Counter
+                    value={item.value}
+                    className="text-3xl font-bold text-white mb-3 block"
+                  />
                   <p className="text-slate-400 leading-relaxed">
                     {item.description}
                   </p>
-                </motion.div>
+                </SpotlightCard>
               ))}
             </div>
           </div>

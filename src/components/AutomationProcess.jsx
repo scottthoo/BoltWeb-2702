@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { FiTarget, FiLayout, FiTrendingUp } from "react-icons/fi";
+import SpotlightCard from "./effects/SpotlightCard";
+import Counter from "./effects/Counter";
 
 const steps = [
   {
@@ -52,22 +54,26 @@ export default function AutomationProcess() {
 
         <div className="grid lg:grid-cols-3 gap-8">
           {steps.map((step, index) => (
-            <motion.div
+            <SpotlightCard
               key={step.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
-              className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur"
+              whileHover={{ y: -6 }}
+              className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur"
             >
-              <div className="w-14 h-14 rounded-2xl bg-orange-500/20 flex items-center justify-center text-3xl text-orange-300 mb-6">
+              <div className="absolute right-6 top-6 text-6xl font-bold text-white/5 select-none">
+                0{index + 1}
+              </div>
+              <div className="w-14 h-14 rounded-2xl bg-orange-500/20 flex items-center justify-center text-3xl text-orange-300 mb-6 transition-transform duration-300 group-hover/spotlight:scale-110">
                 {step.icon}
               </div>
               <h3 className="text-2xl font-semibold mb-4">{step.title}</h3>
               <p className="text-slate-300 leading-relaxed text-lg">
                 {step.description}
               </p>
-            </motion.div>
+            </SpotlightCard>
           ))}
         </div>
 
@@ -81,7 +87,10 @@ export default function AutomationProcess() {
               transition={{ delay: index * 0.1 }}
               className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 p-8 border border-white/10 text-center md:text-left"
             >
-              <p className="text-4xl font-bold text-white mb-2">{stat.value}</p>
+              <Counter
+                value={stat.value}
+                className="text-4xl font-bold text-white mb-2 block"
+              />
               <p className="text-slate-400 font-medium">{stat.label}</p>
             </motion.div>
           ))}

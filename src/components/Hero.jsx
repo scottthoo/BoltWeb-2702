@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import NeuralMesh from "./effects/NeuralMesh";
+import TiltCard from "./effects/TiltCard";
+import Counter from "./effects/Counter";
 
 const whatsappLink =
   "https://wa.me/601115497865?text=Hi%20Scott%2C%20I%20would%20like%20to%20discuss%20strategic%20AI%20implementation";
@@ -32,6 +35,7 @@ export default function Hero() {
         <div className="absolute -top-20 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-orange-500/10 blur-[160px]" />
         <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-sky-500/10 blur-[140px]" />
       </div>
+      <NeuralMesh className="absolute inset-0 h-full w-full" />
 
       <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32">
         <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-16 items-center">
@@ -76,6 +80,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden lg:block relative"
           >
+            <TiltCard className="rounded-2xl">
             <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-sky-500 rounded-2xl opacity-20 blur"></div>
             <div className="relative rounded-2xl border border-white/10 bg-slate-900/90 p-8 backdrop-blur-xl">
               <div className="flex justify-between items-center mb-8 border-b border-white/5 pb-4">
@@ -111,9 +116,10 @@ export default function Hero() {
                       <p className="text-slate-400 text-sm mb-1">
                         {stat.label}
                       </p>
-                      <p className="text-2xl font-bold text-white group-hover:text-orange-400 transition-colors">
-                        {stat.value}
-                      </p>
+                      <Counter
+                        value={stat.value}
+                        className="text-2xl font-bold text-white group-hover:text-orange-400 transition-colors"
+                      />
                     </div>
                     <div
                       className={`h-8 w-8 rounded-full flex items-center justify-center ${
@@ -148,6 +154,7 @@ export default function Hero() {
                 </div>
               </div>
             </div>
+            </TiltCard>
           </motion.div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SpotlightCard from "./effects/SpotlightCard";
 import {
   FaChessKing,
   FaMap,
@@ -71,15 +72,16 @@ export default function Services() {
 
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <motion.div
+            <SpotlightCard
               key={service.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.12 }}
-              className="group rounded-3xl border border-gray-100 bg-gradient-to-br from-white via-white to-orange-50/40 p-10 shadow-sm hover:shadow-xl transition-all duration-300"
+              whileHover={{ y: -6 }}
+              className="group rounded-3xl border border-gray-100 bg-gradient-to-br from-white via-white to-orange-50/40 p-10 shadow-sm hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-orange-100 text-orange-500 text-2xl mb-8 group-hover:scale-105 transition-transform">
+              <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-orange-100 text-orange-500 text-2xl mb-8 transition-transform duration-300 group-hover/spotlight:scale-110 group-hover/spotlight:-rotate-6">
                 {service.icon}
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-slate-900">
@@ -88,7 +90,7 @@ export default function Services() {
               <p className="text-gray-600 leading-relaxed">
                 {service.description}
               </p>
-            </motion.div>
+            </SpotlightCard>
           ))}
         </div>
       </div>
