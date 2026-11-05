@@ -62,17 +62,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm md:flex-row">
-          <p>© {new Date().getFullYear()} Bolt Interactive PLT. All rights reserved.</p>
-          <div className="flex gap-8">
-            <a href="/number-energy-converter-privacy-policy" className="transition-colors hover:text-sand-50">
-              Privacy Policy
-            </a>
-            <a href="/terms" className="transition-colors hover:text-sand-50">
-              Terms of Service
-            </a>
-          </div>
-        </div>
+        <p className="border-t border-white/10 pt-8 text-sm">
+          © {new Date().getFullYear()} Bolt Interactive PLT. All rights reserved.
+        </p>
       </div>
     </footer>
   );
