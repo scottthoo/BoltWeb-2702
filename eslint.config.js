@@ -35,7 +35,7 @@ export default [
   },
   {
     // Build tooling runs in Node, not the browser.
-    files: ['*.config.js'],
+    files: ['*.config.js', 'scripts/**/*.js'],
     languageOptions: {
       globals: globals.node,
     },
