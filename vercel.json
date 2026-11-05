@@ -1,1 +1,1 @@
-{"rewrites": [{"source": "/story", "destination": "/story/index.html"}, {"source": "/(.*)", "destination": "/index.html"}]}
+{"rewrites": [{"source": "/story", "destination": "/story/index.html"}, {"source": "/math-beauty", "destination": "/math-beauty/index.html"}, {"source": "/(.*)", "destination": "/index.html"}]}
