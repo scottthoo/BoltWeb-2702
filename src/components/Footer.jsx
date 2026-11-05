@@ -1,4 +1,5 @@
 import { FaBolt } from "react-icons/fa6";
+import { FiCoffee } from "react-icons/fi";
 import { BRIEFING_LINK, EMAIL } from "../lib/contact";
 
 const initiatives = [
@@ -44,13 +45,18 @@ export default function Footer() {
             <h3 className="mb-6 text-xs font-semibold uppercase tracking-[0.18em] text-sand-50">Connect</h3>
             <ul className="space-y-3">
               <li>
+                <a href="/#coffee" className="transition-colors hover:text-sand-50">
+                  Grab a coffee with Scott
+                </a>
+              </li>
+              <li>
                 <a
                   href={BRIEFING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors hover:text-sand-50"
                 >
-                  Book a briefing on WhatsApp
+                  Message Scott on WhatsApp
                 </a>
               </li>
               <li>
@@ -62,9 +68,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="border-t border-white/10 pt-8 text-sm">
-          © {new Date().getFullYear()} Bolt Interactive PLT. All rights reserved.
-        </p>
+        <div className="flex flex-col gap-3 border-t border-white/10 pt-8 text-sm sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Bolt Interactive PLT. All rights reserved.</p>
+          <p className="flex items-center gap-2 font-display italic text-sand-300">
+            <FiCoffee aria-hidden="true" className="text-clay-light" />
+            Brewed in Kuala Lumpur
+          </p>
+        </div>
       </div>
     </footer>
   );
