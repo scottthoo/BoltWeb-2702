@@ -1,112 +1,74 @@
-import { FaBolt, FaLinkedin, FaTwitter } from "react-icons/fa6";
+import { FaBolt } from "react-icons/fa6";
+import { BRIEFING_LINK, EMAIL } from "../lib/contact";
+
+const initiatives = [
+  "CEO Consultation",
+  "Implementation Roadmaps",
+  "Operational Transformation",
+  "AI Governance",
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-slate-400 py-16 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div className="col-span-2">
-            <div className="flex items-center gap-2 text-2xl font-bold text-white mb-6">
-              <FaBolt className="text-orange-500" />
-              <span>BOLT</span>
+    <footer className="bg-espresso py-16 text-sand-400">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-14 grid gap-12 md:grid-cols-4">
+          <div className="md:col-span-2">
+            <div className="mb-6 flex items-center gap-2 text-sand-50">
+              <FaBolt className="text-xl text-clay-light" aria-hidden="true" />
+              <span className="text-lg font-semibold tracking-[0.2em]">BOLT</span>
             </div>
             <p className="max-w-md leading-relaxed">
               We partner with forward-thinking executives to build AI-driven
-              organizations. Reducing operational friction and accelerating
-              execution speed through strategic intelligence systems.
+              organizations, reducing operational friction and accelerating execution
+              speed through strategic intelligence systems.
             </p>
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-6">
-              Strategic Initiatives
+            <h3 className="mb-6 text-xs font-semibold uppercase tracking-[0.18em] text-sand-50">
+              Strategic initiatives
             </h3>
-            <ul className="space-y-4">
-              <li>
-                <a
-                  href="/#services"
-                  className="hover:text-white transition-colors"
-                >
-                  CEO Consultation
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/#services"
-                  className="hover:text-white transition-colors"
-                >
-                  Implementation Roadmaps
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/#services"
-                  className="hover:text-white transition-colors"
-                >
-                  Operational Transformation
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/#services"
-                  className="hover:text-white transition-colors"
-                >
-                  AI Governance
-                </a>
-              </li>
+            <ul className="space-y-3">
+              {initiatives.map((label) => (
+                <li key={label}>
+                  <a href="/#services" className="transition-colors hover:text-sand-50">
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-6">Connect</h3>
-            <ul className="space-y-4">
+            <h3 className="mb-6 text-xs font-semibold uppercase tracking-[0.18em] text-sand-50">Connect</h3>
+            <ul className="space-y-3">
               <li>
                 <a
-                  href="/#contact"
-                  className="hover:text-white transition-colors"
+                  href={BRIEFING_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-sand-50"
                 >
-                  Request Briefing
+                  Book a briefing on WhatsApp
                 </a>
               </li>
               <li>
-                <a
-                  href="mailto:scott@bolt-interactive.com"
-                  className="hover:text-white transition-colors"
-                >
-                  Email Leadership
-                </a>
-              </li>
-              <li className="flex gap-4 pt-2">
-                <a
-                  href="#"
-                  className="text-xl hover:text-white transition-colors"
-                >
-                  <FaLinkedin />
-                </a>
-                <a
-                  href="#"
-                  className="text-xl hover:text-white transition-colors"
-                >
-                  <FaTwitter />
+                <a href={`mailto:${EMAIL}`} className="transition-colors hover:text-sand-50">
+                  {EMAIL}
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <p>
-            © {new Date().getFullYear()} Bolt Interactive PLT. All rights
-            reserved.
-          </p>
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm md:flex-row">
+          <p>© {new Date().getFullYear()} Bolt Interactive PLT. All rights reserved.</p>
           <div className="flex gap-8">
-            <a
-              href="/number-energy-converter-privacy-policy"
-              className="hover:text-white transition-colors"
-            >
+            <a href="/number-energy-converter-privacy-policy" className="transition-colors hover:text-sand-50">
               Privacy Policy
             </a>
-            <a href="/terms" className="hover:text-white transition-colors">
+            <a href="/terms" className="transition-colors hover:text-sand-50">
               Terms of Service
             </a>
           </div>

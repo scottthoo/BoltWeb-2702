@@ -22,55 +22,48 @@ const highlights = [
 
 export default function Recognition() {
   return (
-    <section id="recognition" className="py-24 bg-slate-900 text-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="recognition" className="bg-sand-100 py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-4xl"
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-14 grid gap-6 lg:mb-20 lg:grid-cols-2 lg:items-end"
         >
-          <div className="space-y-10">
-            <div>
-              <p className="text-orange-300 font-semibold tracking-wide uppercase">
-                Executive Impact
-              </p>
-              <h2 className="text-4xl md:text-5xl font-bold mt-4 leading-tight">
-                Delivering outcomes that matter to the board
-              </h2>
-              <p className="text-slate-300 mt-6 text-lg max-w-2xl">
-                We measure our success by the tangible business value we create.
-                Here is the impact of our recent strategic implementations.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {highlights.map((item, index) => (
-                <SpotlightCard
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -6 }}
-                  glow="56, 189, 248"
-                  className="rounded-2xl border border-white/10 bg-white/5 p-8 hover:bg-white/10 transition-colors"
-                >
-                  <p className="text-sm text-orange-200 uppercase tracking-[0.1em] font-medium mb-4">
-                    {item.title}
-                  </p>
-                  <Counter
-                    value={item.value}
-                    className="text-3xl font-bold text-white mb-3 block"
-                  />
-                  <p className="text-slate-400 leading-relaxed">
-                    {item.description}
-                  </p>
-                </SpotlightCard>
-              ))}
-            </div>
+          <div>
+            <p className="eyebrow">Executive impact</p>
+            <h2 className="mt-5 font-display text-4xl leading-[1.05] tracking-[-0.02em] md:text-6xl">
+              Outcomes that matter <em className="font-light italic text-clay">to the board.</em>
+            </h2>
           </div>
+          <p className="max-w-xl text-lg leading-relaxed text-ink-soft lg:justify-self-end">
+            We measure our success by the tangible business value we create. Here is
+            the impact of our recent strategic implementations.
+          </p>
         </motion.div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {highlights.map((item, index) => (
+            <SpotlightCard
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="rounded-3xl border border-sand-300 bg-paper p-8 shadow-[0_1px_0_rgba(255,255,255,0.8)_inset] lg:p-10"
+            >
+              <p className="mb-10 text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">
+                {item.title}
+              </p>
+              <Counter
+                value={item.value}
+                className="mb-3 block font-display text-4xl tracking-[-0.02em] text-clay lg:text-5xl"
+              />
+              <p className="leading-relaxed text-ink-soft">{item.description}</p>
+            </SpotlightCard>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 export default function SpotlightCard({
   children,
   className = "",
-  glow = "249, 115, 22", // orange-500
+  glow = "166, 72, 31", // clay
   ...motionProps
 }) {
   const ref = useRef(null);

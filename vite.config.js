@@ -10,8 +10,11 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
-   build: {
+  build: {
     outDir: 'dist',
-    sourcemap: true
+    sourcemap: true,
+    // The three.js hero is a deliberately lazy-loaded chunk (~135 kB gzip) that
+    // loads after first paint; it cannot be split further, so allow its size.
+    chunkSizeWarningLimit: 600,
   },
 });

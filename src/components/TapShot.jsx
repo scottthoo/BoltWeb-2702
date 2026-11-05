@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./TapShot.css";
 
 const VideoCover = ({ videoId, ratio = 16 / 9, posterEmoji, title }) => {

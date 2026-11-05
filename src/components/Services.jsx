@@ -1,13 +1,6 @@
 import { motion } from "framer-motion";
 import SpotlightCard from "./effects/SpotlightCard";
-import {
-  FaChessKing,
-  FaMap,
-  FaCogs,
-  FaNetworkWired,
-  FaChartLine,
-  FaShieldAlt,
-} from "react-icons/fa";
+import { FaChessKing, FaMap, FaCogs, FaNetworkWired, FaChartLine, FaShieldAlt } from "react-icons/fa";
 
 const services = [
   {
@@ -50,46 +43,47 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="services" className="bg-paper py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-14 grid gap-6 lg:mb-20 lg:grid-cols-2 lg:items-end"
         >
-          <p className="text-orange-500 font-semibold tracking-wide uppercase">
-            Strategic Initiatives
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4">
-            AI transformation for the C-Suite
-          </h2>
-          <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">
-            We move beyond simple automation to deliver comprehensive AI
-            strategies that reshape how your organization creates value.
+          <div>
+            <p className="eyebrow">Strategic initiatives</p>
+            <h2 className="mt-5 font-display text-4xl leading-[1.05] tracking-[-0.02em] md:text-6xl">
+              AI transformation for the <em className="font-light italic text-clay">C-suite.</em>
+            </h2>
+          </div>
+          <p className="max-w-xl text-lg leading-relaxed text-ink-soft lg:justify-self-end">
+            We move beyond simple automation to deliver comprehensive AI strategies
+            that reshape how your organization creates value.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid border-l border-t border-sand-300 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, index) => (
             <SpotlightCard
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.12 }}
-              whileHover={{ y: -6 }}
-              className="group rounded-3xl border border-gray-100 bg-gradient-to-br from-white via-white to-orange-50/40 p-10 shadow-sm hover:shadow-xl transition-shadow duration-300"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, delay: (index % 3) * 0.1 }}
+              className="border-b border-r border-sand-300 p-8 transition-colors duration-300 hover:bg-sand-50 lg:p-10"
             >
-              <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-orange-100 text-orange-500 text-2xl mb-8 transition-transform duration-300 group-hover/spotlight:scale-110 group-hover/spotlight:-rotate-6">
-                {service.icon}
+              <div className="mb-12 flex items-start justify-between">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-sand-200 text-lg text-clay transition-transform duration-300 group-hover/spotlight:-rotate-6 group-hover/spotlight:scale-110">
+                  {service.icon}
+                </span>
+                <span className="font-display text-sm italic text-ink-muted">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
               </div>
-              <h3 className="text-2xl font-semibold mb-4 text-slate-900">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {service.description}
-              </p>
+              <h3 className="mb-3 font-display text-2xl tracking-[-0.01em]">{service.title}</h3>
+              <p className="leading-relaxed text-ink-soft">{service.description}</p>
             </SpotlightCard>
           ))}
         </div>

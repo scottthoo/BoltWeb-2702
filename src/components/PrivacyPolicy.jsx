@@ -1,9 +1,8 @@
-import React from "react";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+    <div className="min-h-screen bg-sand-100 px-4 pb-16 pt-28 sm:px-6 lg:px-8 lg:pt-32">
+      <div className="mx-auto max-w-4xl rounded-3xl border border-sand-300 bg-paper p-8 md:p-12">
         <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
           数字能量分析 - 风水号码 隐私政策
         </h1>
