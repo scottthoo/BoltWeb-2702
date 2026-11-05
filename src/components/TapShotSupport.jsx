@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Mail, Bug, Shield, ChevronDown, ChevronUp, AlertCircle, CheckCircle, Smartphone, Watch } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Mail, Bug, Shield, ChevronDown, ChevronUp, AlertCircle, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AccordionItem = ({ question, answer, isOpen, onClick }) => {

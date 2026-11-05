@@ -1,7 +1,7 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 
 /**
- * Thin gradient progress bar that fills as the page scrolls. Sits just under
+ * Thin clay progress bar that fills as the page scrolls. Sits just under
  * the fixed navbar.
  */
 export default function ScrollProgress() {
@@ -15,7 +15,7 @@ export default function ScrollProgress() {
   return (
     <motion.div
       style={{ scaleX }}
-      className="fixed top-0 left-0 right-0 z-[60] h-[3px] origin-left bg-gradient-to-r from-orange-500 via-orange-400 to-sky-400"
+      className="fixed left-0 right-0 top-0 z-[60] h-[2px] origin-left bg-clay"
     />
   );
 }

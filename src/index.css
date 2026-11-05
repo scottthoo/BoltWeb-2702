@@ -1,19 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  html {
+    background-color: theme("colors.sand.100");
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-sand-100 font-sans text-ink antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  /* Anchor targets clear the fixed navbar. */
+  section[id] {
+    scroll-margin-top: 4.5rem;
+  }
+
+  ::selection {
+    background-color: theme("colors.clay.DEFAULT");
+    color: theme("colors.paper");
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.clay.DEFAULT");
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer components {
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.22em] text-clay;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-3 rounded-full bg-clay px-7 py-4 font-medium text-paper shadow-[0_10px_30px_-12px_rgba(166,72,31,0.7)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-clay-dark hover:shadow-[0_16px_36px_-14px_rgba(166,72,31,0.8)];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-3 rounded-full border border-ink/20 px-7 py-4 font-medium text-ink transition-colors duration-300 hover:border-ink/40 hover:bg-ink/5;
+  }
+
+  /* Paper grain: a tiny tiled SVG noise, multiplied over the warm background. */
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .36 0 0 0 0 .27 0 0 0 0 .17 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 }
 
 #root {

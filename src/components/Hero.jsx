@@ -1,162 +1,89 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import NeuralMesh from "./effects/NeuralMesh";
-import TiltCard from "./effects/TiltCard";
+import { FaWhatsapp } from "react-icons/fa";
+import { FiArrowRight } from "react-icons/fi";
 import Counter from "./effects/Counter";
+import BoltCanvas from "./three/BoltCanvas";
+import { BRIEFING_LINK } from "../lib/contact";
 
-const whatsappLink =
-  "https://wa.me/601115497865?text=Hi%20Scott%2C%20I%20would%20like%20to%20discuss%20strategic%20AI%20implementation";
+const stats = [
+  { value: "+300%", label: "Execution speed" },
+  { value: "-85%", label: "Operational friction" },
+  { value: "+4.2x", label: "Revenue per employee" },
+];
 
-const Avatar = ({ src, alt }) => {
-  const [error, setError] = useState(false);
-
-  if (error) {
-    return (
-      <div className="w-8 h-8 rounded-full bg-slate-700 border border-slate-900 flex items-center justify-center text-xs text-slate-400">
-        ?
-      </div>
-    );
-  }
-
-  return (
-    <img
-      src={src}
-      alt={alt}
-      className="w-8 h-8 rounded-full border border-slate-900 object-cover bg-slate-700"
-      onError={() => setError(true)}
-    />
-  );
-};
+const rise = (delay) => ({
+  initial: { opacity: 0, y: 18 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] },
+});
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-slate-950 text-white min-h-[90vh] flex items-center">
-      <div className="absolute inset-0">
-        <div className="absolute -top-20 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-orange-500/10 blur-[160px]" />
-        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-sky-500/10 blur-[140px]" />
-      </div>
-      <NeuralMesh className="absolute inset-0 h-full w-full" />
+    <section className="relative overflow-hidden bg-sand-100">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_60%_at_78%_42%,rgba(255,251,243,0.95),rgba(255,251,243,0)_70%)]"
+      />
+      <div aria-hidden="true" className="grain pointer-events-none absolute inset-0 opacity-40 mix-blend-multiply" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32">
-        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
+      <div className="relative mx-auto grid max-w-7xl items-center px-6 pb-0 pt-28 lg:min-h-[100svh] lg:grid-cols-[1.08fr_0.92fr] lg:pb-16 lg:pt-24">
+        <div className="relative z-10">
+          <motion.p {...rise(0)} className="eyebrow">
+            Executive AI Partner · Kuala Lumpur
+          </motion.p>
+
+          <motion.h1
+            {...rise(0.08)}
+            className="mt-6 font-display text-[2.6rem] font-normal leading-[1.02] tracking-[-0.025em] text-ink sm:text-6xl lg:text-[4.5rem]"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-orange-200 tracking-wide uppercase">
-              Executive AI Partner · Kuala Lumpur
-            </span>
-            <div>
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                AI Systems That Accelerate Executive Decision-Making
-              </h1>
-              <p className="text-xl text-slate-300 mt-6 leading-relaxed max-w-2xl">
-                We partner with CEOs, Founders, and COOs to design and implement
-                AI architectures that reduce operational friction and increase
-                execution speed across the organization.
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-4 pt-4">
-              <a
-                href="#contact"
-                className="bg-orange-500 hover:bg-orange-400 text-white px-8 py-4 rounded-full font-semibold transition-all hover:scale-105"
-              >
-                Request Strategic Briefing
-              </a>
-              <a
-                href="#recognition"
-                className="border border-white/20 px-8 py-4 rounded-full font-semibold hover:bg-white/5 transition-all"
-              >
-                View Executive Impact
-              </a>
-            </div>
-          </motion.div>
+            AI systems that accelerate{" "}
+            <em className="font-light italic text-clay">executive decision-making.</em>
+          </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative"
+          <motion.p {...rise(0.16)} className="mt-7 max-w-xl text-lg leading-relaxed text-ink-soft md:text-xl">
+            We partner with CEOs, founders and COOs to design and implement AI
+            architectures that reduce operational friction and increase execution
+            speed across the organization.
+          </motion.p>
+
+          <motion.div {...rise(0.24)} className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+            <a href={BRIEFING_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <FaWhatsapp className="text-xl" aria-hidden="true" />
+              Book a strategic briefing
+            </a>
+            <a
+              href="#process"
+              className="group inline-flex items-center justify-center gap-2 px-2 py-3 font-medium text-ink-soft transition-colors hover:text-ink"
+            >
+              See how we work
+              <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+            </a>
+          </motion.div>
+          <motion.p {...rise(0.3)} className="mt-4 text-sm text-ink-muted">
+            Opens WhatsApp · a direct line to Scott, no forms.
+          </motion.p>
+
+          <motion.dl
+            {...rise(0.38)}
+            className="mt-12 grid max-w-xl grid-cols-3 divide-x divide-sand-300 border-t border-sand-300 pt-6"
           >
-            <TiltCard className="rounded-2xl">
-            <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-sky-500 rounded-2xl opacity-20 blur"></div>
-            <div className="relative rounded-2xl border border-white/10 bg-slate-900/90 p-8 backdrop-blur-xl">
-              <div className="flex justify-between items-center mb-8 border-b border-white/5 pb-4">
-                <p className="text-sm uppercase tracking-[0.2em] text-slate-400">
-                  Strategic Impact
-                </p>
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-                </div>
+            {stats.map((stat) => (
+              <div key={stat.label} className="flex flex-col gap-1 px-4 first:pl-0">
+                <dt className="order-last text-xs leading-snug text-ink-muted sm:text-sm">{stat.label}</dt>
+                <dd>
+                  <Counter value={stat.value} className="font-display text-2xl text-ink sm:text-3xl" />
+                </dd>
               </div>
-
-              <div className="space-y-6">
-                {[
-                  { label: "Execution Speed", value: "+300%", trend: "up" },
-                  {
-                    label: "Operational Friction",
-                    value: "-85%",
-                    trend: "down",
-                  },
-                  {
-                    label: "Revenue per Employee",
-                    value: "+4.2x",
-                    trend: "up",
-                  },
-                ].map((stat, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-between group"
-                  >
-                    <div>
-                      <p className="text-slate-400 text-sm mb-1">
-                        {stat.label}
-                      </p>
-                      <Counter
-                        value={stat.value}
-                        className="text-2xl font-bold text-white group-hover:text-orange-400 transition-colors"
-                      />
-                    </div>
-                    <div
-                      className={`h-8 w-8 rounded-full flex items-center justify-center ${
-                        stat.trend === "up"
-                          ? "bg-green-500/20 text-green-400"
-                          : "bg-orange-500/20 text-orange-400"
-                      }`}
-                    >
-                      {stat.trend === "up" ? "↑" : "↓"}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-white/5">
-                <div className="flex items-center gap-4 text-sm text-slate-400">
-                  <div className="flex -space-x-2">
-                    <Avatar
-                      src="/images/leadership/executive-man.jpg"
-                      alt="Executive Partner"
-                    />
-                    <Avatar
-                      src="/images/leadership/executive-woman.jpg"
-                      alt="Executive Partner"
-                    />
-                    <Avatar
-                      src="/images/leadership/executive-meeting.jpg"
-                      alt="Executive Partner"
-                    />
-                  </div>
-                  <p>Partnering with visionary leadership teams</p>
-                </div>
-              </div>
-            </div>
-            </TiltCard>
-          </motion.div>
+            ))}
+          </motion.dl>
         </div>
+
+        <figure className="relative -mx-6 mt-4 h-[420px] sm:h-[500px] lg:mx-0 lg:-mr-16 lg:mt-0 lg:h-[min(780px,90svh)]">
+          <BoltCanvas className="absolute inset-0" />
+          <figcaption className="pointer-events-none absolute bottom-3 left-6 right-6 text-center font-display text-sm italic text-ink-muted lg:bottom-6 lg:left-auto lg:right-16 lg:text-right">
+            Fig. 01 · Scattered effort, assembled into one system. Try disturbing it.
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

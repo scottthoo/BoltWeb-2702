@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { ArrowLeft, Shield, Lock, Eye, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
