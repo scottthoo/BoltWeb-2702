@@ -11,6 +11,3 @@ export const whatsappLink = (message) =>
 export const BRIEFING_LINK = whatsappLink(
   "Hi Scott, I would like to discuss strategic AI implementation"
 );
-export const PARTNERSHIP_LINK = whatsappLink(
-  "Hi Scott, I would like to discuss a strategic AI partnership"
-);

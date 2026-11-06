@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaBolt } from "react-icons/fa6";
-import { FaWhatsapp } from "react-icons/fa";
-import { BRIEFING_LINK } from "../lib/contact";
+import { FiCoffee } from "react-icons/fi";
 
 const links = [
   { href: "/#services", label: "Initiatives" },
@@ -45,13 +44,11 @@ export default function Navbar() {
           </div>
           {/* Visible at every width: on phones this is the only always-on CTA. */}
           <a
-            href={BRIEFING_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/#coffee"
             className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition-colors duration-300 hover:bg-clay sm:px-5 sm:py-2.5"
           >
-            <FaWhatsapp aria-hidden="true" />
-            Book a briefing
+            <FiCoffee aria-hidden="true" />
+            Grab a coffee
           </a>
         </div>
       </div>

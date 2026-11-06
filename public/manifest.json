@@ -1,0 +1,14 @@
+{
+  "name": "Bolt Interactive",
+  "short_name": "Bolt",
+  "description": "Executive AI partner in Kuala Lumpur. Every good partnership starts over coffee.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F4EDE0",
+  "theme_color": "#F4EDE0",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
-import { FaWhatsapp } from "react-icons/fa";
-import { FiArrowRight } from "react-icons/fi";
+import { FiArrowRight, FiCoffee } from "react-icons/fi";
 import Counter from "./effects/Counter";
 import BoltCanvas from "./three/BoltCanvas";
-import { BRIEFING_LINK } from "../lib/contact";
 
 const stats = [
   { value: "+300%", label: "Execution speed" },
@@ -47,9 +45,9 @@ export default function Hero() {
           </motion.p>
 
           <motion.div {...rise(0.24)} className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
-            <a href={BRIEFING_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              <FaWhatsapp className="text-xl" aria-hidden="true" />
-              Book a strategic briefing
+            <a href="#coffee" className="btn-primary">
+              <FiCoffee className="text-xl" aria-hidden="true" />
+              Grab a coffee with Scott
             </a>
             <a
               href="#process"
@@ -60,7 +58,7 @@ export default function Hero() {
             </a>
           </motion.div>
           <motion.p {...rise(0.3)} className="mt-4 text-sm text-ink-muted">
-            Opens WhatsApp · a direct line to Scott, no forms.
+            Pick a brew, tap send · it lands on Scott&apos;s WhatsApp, no forms.
           </motion.p>
 
           <motion.dl
