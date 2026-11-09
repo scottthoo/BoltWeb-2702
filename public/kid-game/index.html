@@ -6,7 +6,7 @@
     <title>Kid Games | Bolt Interactive</title>
     <meta
       name="description"
-      content="Seven free browser games that turn number bonds, adding, taking away and times tables into play. No sign-up, no ads. Made by Bolt Interactive in Kuala Lumpur."
+      content="Eight free browser games that turn the ABCs, number bonds, adding, taking away and times tables into play. No sign-up, no ads. Made by Bolt Interactive in Kuala Lumpur."
     />
     <meta name="theme-color" content="#F4EDE0" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -15,7 +15,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://bolt-interactive.com/kid-game/" />
     <meta property="og:title" content="Kid Games | Bolt Interactive" />
-    <meta property="og:description" content="Seven free browser games that make maths feel like play. No sign-up, no ads." />
+    <meta property="og:description" content="Eight free browser games that make learning feel like play. No sign-up, no ads." />
     <meta property="og:image" content="https://bolt-interactive.com/kid-game/thumbs/make-ten-adventure.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -198,14 +198,34 @@
         background: var(--clay);
       }
 
-      /* Game grid */
+      /* Game grid: on a wide screen, two feature cards share the first row and
+         the other six fill two rows of three (a six-column track). */
       .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 24px;
         margin: 0 0 96px;
         padding: 0;
         list-style: none;
+      }
+
+      .grid > li {
+        grid-column: span 2;
+      }
+
+      .grid > li.feature {
+        grid-column: span 3;
+      }
+
+      @media (max-width: 1023px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid > li,
+        .grid > li.feature {
+          grid-column: span 1;
+        }
       }
 
       .card {
@@ -366,41 +386,18 @@
         filter: brightness(0.92);
       }
 
-      /* The first card spans the grid; side by side once there is room. */
-      .grid > .feature {
-        grid-column: 1 / -1;
-      }
-
-      @media (min-width: 1100px) {
-        .card--feature {
-          display: grid;
-          grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-        }
-
-        /* Fill the row even when the text side is the taller one. */
-        .card--feature .card__shot {
-          aspect-ratio: auto;
-          min-height: 100%;
-        }
-
+      /* The two feature cards read a step larger while they share a row. */
+      @media (min-width: 1024px) {
         .card--feature .card__body {
-          justify-content: center;
-          padding: 36px 40px;
-          border-top: 0;
-          border-left: 4px solid var(--accent);
+          padding: 26px 30px 28px;
         }
 
         .card--feature .card__title {
-          font-size: clamp(30px, 3.2vw, 40px);
+          font-size: 32px;
         }
 
         .card--feature .card__blurb {
-          font-size: 17px;
-        }
-
-        .card--feature .card__foot {
-          margin-top: 0;
-          padding-top: 28px;
+          font-size: 16px;
         }
       }
 
@@ -493,10 +490,10 @@
       <main>
         <section class="intro" aria-labelledby="intro-title">
           <p class="eyebrow">Kid Games</p>
-          <h1 id="intro-title">Little games that make maths feel like <em>play</em>.</h1>
+          <h1 id="intro-title">Little games that make learning feel like <em>play</em>.</h1>
           <p class="lead">
-            Seven browser games for young learners, from making ten to times tables. Pick one, tap play, and learn by
-            playing.
+            Eight browser games for young learners, from the ABCs and making ten to times tables. Pick one, tap play,
+            and learn by playing.
           </p>
           <ul class="facts">
             <li>Free to play</li>
@@ -506,8 +503,9 @@
         </section>
 
         <!--
-          One card per game, youngest first; the first is the full-width feature, which
-          keeps the other six in even rows. Each game is built into its own folder by
+          One card per game. The first two are the feature cards that share the top row
+          (class="feature"), then youngest first, so the other six fill two rows of three.
+          Each game is built into its own folder by
           scripts/build-kid-games.mjs; thumbs/ holds a screenshot of each one in play.
         -->
         <ul class="grid" aria-label="Games">
@@ -529,6 +527,31 @@
                   <span class="device">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.5a6 6 0 0 1-4.6-2.2L5 15.9a1.6 1.6 0 0 1 2.5-2L9 15.5" /></svg>
                     Tap or click
+                  </span>
+                  <span class="play">Play <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.2v9.6L10.5 6z" /></svg></span>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li class="feature">
+            <a class="card card--feature" href="/kid-game/abc-quickdraw/" style="--accent: #b91c1c">
+              <div class="card__shot">
+                <img src="/kid-game/thumbs/abc-quickdraw.jpg" alt="ABC Quickdraw: a toy sheriff faces a carnival booth with the letters A to G lit up above the curtain" width="960" height="600" />
+              </div>
+              <div class="card__body">
+                <p class="card__age">Ages 4 to 7</p>
+                <h2 class="card__title">ABC Quickdraw</h2>
+                <p class="card__blurb">The letters A to F light up one beat at a time, each with its own note. Wait for G, then tap to quick-draw and knock the tin bandit off its spring. Watch out for the ducks!</p>
+                <ul class="tags">
+                  <li>Letters A to G</li>
+                  <li>Rhythm</li>
+                  <li>Waiting for the right moment</li>
+                </ul>
+                <div class="card__foot">
+                  <span class="device">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.5a6 6 0 0 1-4.6-2.2L5 15.9a1.6 1.6 0 0 1 2.5-2L9 15.5" /></svg>
+                    Tap or the space bar
                   </span>
                   <span class="play">Play <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.2v9.6L10.5 6z" /></svg></span>
                 </div>

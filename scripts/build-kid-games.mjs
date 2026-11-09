@@ -8,8 +8,8 @@
  *
  * Each game lives in its own repo beside this one (../<repo>), and this script
  * never edits those repos. Vite games are built with the repo's own npm script,
- * pointed at the sub-path and at an output folder here; plain HTML games are
- * copied. The output is committed, because Netlify only checks out this repo:
+ * pointed at the sub-path and at an output folder here; single-file games run
+ * their own build script with --out pointed here; plain HTML games are copied. The output is committed, because Netlify only checks out this repo:
  * change a game in its own repo, then run this again and commit the result.
  */
 import { spawnSync } from "node:child_process";
@@ -32,17 +32,32 @@ const GAMES = [
   { slug: "do-not-touch", repo: "kid-game-do-not-touch", build: "build" },
   // The full Times Strike app needs a server; build:standalone is its client-only build.
   { slug: "times-strike", repo: "times-strike", build: "build:standalone" },
+  // One self-contained HTML file, written by the repo's own build script.
+  { slug: "abc-quickdraw", repo: "abcdef_g", singleFile: "build.mjs" },
 ];
 
 const basePath = (slug) => `/kid-game/${slug}/`;
 
-function buildVite(game, src, dest) {
+function requireInstalled(game, src) {
   if (!existsSync(join(src, "node_modules"))) {
     throw new Error(`${game.repo} has no node_modules: run "npm install" in ${src} first`);
   }
+}
+
+function buildVite(game, src, dest) {
+  requireInstalled(game, src);
   const args = ["run", game.build, "--", "--base", basePath(game.slug), "--outDir", dest, "--emptyOutDir"];
   const run = spawnSync("npm", args, { cwd: src, stdio: "inherit" });
   if (run.status !== 0) throw new Error(`${game.repo}: "npm ${args.join(" ")}" failed`);
+}
+
+// The page inlines everything (code, styles, icon), so its path does not matter.
+function buildSingleFile(game, src, dest) {
+  requireInstalled(game, src);
+  rmSync(dest, { recursive: true, force: true });
+  const args = [game.singleFile, "--out", join(dest, "index.html")];
+  const run = spawnSync("node", args, { cwd: src, stdio: "inherit" });
+  if (run.status !== 0) throw new Error(`${game.repo}: "node ${args.join(" ")}" failed`);
 }
 
 // A copied page keeps its relative links (styles.css, ../../shared/...), which
@@ -82,6 +97,7 @@ for (const game of GAMES.filter((g) => !wanted.length || wanted.includes(g.slug)
   if (!existsSync(src)) throw new Error(`${game.slug}: source repo not found at ${src}`);
   console.log(`\n▶ ${game.slug}  (from ../${game.repo})`);
   if (game.build) buildVite(game, src, dest);
+  else if (game.singleFile) buildSingleFile(game, src, dest);
   else copyStatic(game, src, dest);
   if (!existsSync(join(dest, "index.html"))) throw new Error(`${game.slug}: no index.html in ${dest}`);
 }
