@@ -1,0 +1,27 @@
+/* Base styling for any GAME page (not the hub). Keeps the Phaser canvas
+ * centered, rounded, and free of mobile text-selection / tap quirks. */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #4ea3e0; /* matches the sky so letterboxing blends in */
+  overflow: hidden;
+  font-family: 'Fredoka', system-ui, sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+#game-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#game-container canvas {
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}

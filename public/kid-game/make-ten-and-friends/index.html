@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<base href="/kid-game/make-ten-and-friends/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kids Learning Games 🎈</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="shared/hub.css" />
+</head>
+<body>
+  <main class="hub">
+    <header class="hub__header">
+      <h1 class="hub__title">🎈 Kids Learning Games</h1>
+      <p class="hub__subtitle">Tap a game to play and learn!</p>
+    </header>
+
+    <section class="grid" id="grid" aria-label="Games"></section>
+
+    <footer class="hub__footer">Made for little learners 🌱</footer>
+  </main>
+
+  <!-- The registry drives the cards below. -->
+  <script src="shared/games.js"></script>
+  <script>
+    // Render one card per registered game. New games appear automatically
+    // once they are added to shared/games.js.
+    const grid = document.getElementById('grid');
+
+    (window.GAMES || []).forEach(function (game) {
+      const ready = game.ready !== false;
+      const card = document.createElement(ready ? 'a' : 'div');
+      card.className = 'card' + (ready ? '' : ' card--soon');
+      card.style.setProperty('--card-accent', game.color || '#4cc36b');
+      if (ready) {
+        card.href = 'games/' + game.slug + '/index.html';
+      }
+
+      const tags = (game.skills || [])
+        .map(function (s) { return '<span class="tag">' + s + '</span>'; })
+        .join('');
+
+      card.innerHTML =
+        '<div class="card__emoji">' + (game.emoji || '🎮') + '</div>' +
+        '<h2 class="card__title">' + game.title + '</h2>' +
+        '<p class="card__tagline">' + (game.tagline || '') + '</p>' +
+        '<div class="tags">' + tags + '</div>' +
+        '<div class="card__footer">' +
+          '<span class="age-badge">Ages ' + (game.age || 'all') + '</span>' +
+          '<span class="play-pill">' + (ready ? 'Play ▶' : 'Soon') + '</span>' +
+        '</div>';
+
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kid Games | Bolt Interactive</title>
+    <meta
+      name="description"
+      content="Eight free browser games that turn the ABCs, number bonds, adding, taking away and times tables into play. No sign-up, no ads. Made by Bolt Interactive in Kuala Lumpur."
+    />
+    <meta name="theme-color" content="#F4EDE0" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bolt-interactive.com/kid-game/" />
+    <meta property="og:title" content="Kid Games | Bolt Interactive" />
+    <meta property="og:description" content="Eight free browser games that make learning feel like play. No sign-up, no ads." />
+    <meta property="og:image" content="https://bolt-interactive.com/kid-game/thumbs/make-ten-adventure.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap"
+    />
+    <style>
+      /* The site's warm editorial palette (tailwind.config.js), plus one accent per game. */
+      :root {
+        --paper: #faf6ee;
+        --sand-50: #fcf9f3;
+        --sand-100: #f4ede0;
+        --sand-200: #ebe1cf;
+        --sand-300: #ddcfb7;
+        --ink: #1f1a14;
+        --ink-soft: #4a4136;
+        --ink-muted: #6b6052;
+        --clay: #a6481f;
+        --clay-dark: #8a3a17;
+        --display: "Fraunces", ui-serif, Georgia, serif;
+        --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: var(--sand-100);
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        position: relative;
+        min-height: 100vh;
+        margin: 0;
+        background: var(--sand-100);
+        color: var(--ink);
+        font-family: var(--sans);
+        font-feature-settings: "ss01", "cv11";
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Paper grain: the homepage hero's tiled noise, over the whole page. */
+      body::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.4;
+        mix-blend-mode: multiply;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .36 0 0 0 0 .27 0 0 0 0 .17 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      ::selection {
+        background: var(--clay);
+        color: var(--paper);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--clay);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+
+      .wrap {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Top bar: the same mark as the homepage navbar. */
+      .bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+        border-bottom: 1px solid rgba(31, 26, 20, 0.08);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: var(--ink);
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+      }
+
+      .brand svg {
+        width: 18px;
+        height: 20px;
+        fill: var(--clay);
+      }
+
+      .bar__link {
+        font-size: 14px;
+        color: var(--ink-soft);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .bar__link:hover {
+        color: var(--ink);
+      }
+
+      /* Intro */
+      .intro {
+        padding: 72px 0 48px;
+        max-width: 760px;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--clay);
+      }
+
+      h1 {
+        margin: 0;
+        font-family: var(--display);
+        font-weight: 400;
+        font-size: clamp(40px, 6.4vw, 72px);
+        line-height: 1.04;
+        letter-spacing: -0.02em;
+        font-variation-settings: "opsz" 144;
+        text-wrap: balance;
+      }
+
+      h1 em {
+        font-style: italic;
+        color: var(--clay);
+      }
+
+      .lead {
+        margin: 24px 0 0;
+        max-width: 600px;
+        font-size: 18px;
+        color: var(--ink-soft);
+      }
+
+      .facts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+        margin: 28px 0 0;
+        padding: 0;
+        list-style: none;
+        font-size: 14px;
+        color: var(--ink-muted);
+      }
+
+      .facts li {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .facts li::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--clay);
+      }
+
+      /* Game grid: on a wide screen, two feature cards share the first row and
+         the other six fill two rows of three (a six-column track). */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 24px;
+        margin: 0 0 96px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .grid > li {
+        grid-column: span 2;
+      }
+
+      .grid > li.feature {
+        grid-column: span 3;
+      }
+
+      @media (max-width: 1023px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid > li,
+        .grid > li.feature {
+          grid-column: span 1;
+        }
+      }
+
+      .card {
+        --accent: var(--clay);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 22px;
+        background: var(--paper);
+        border: 1px solid rgba(31, 26, 20, 0.08);
+        box-shadow: 0 1px 0 rgba(31, 26, 20, 0.04), 0 18px 40px -28px rgba(31, 26, 20, 0.35);
+        text-decoration: none;
+        color: var(--ink);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 1px 0 rgba(31, 26, 20, 0.04), 0 28px 50px -26px rgba(31, 26, 20, 0.45);
+      }
+
+      .card:focus-visible {
+        outline-offset: 4px;
+        border-radius: 22px;
+      }
+
+      .card__shot {
+        position: relative;
+        aspect-ratio: 16 / 10;
+        background: var(--sand-200);
+        overflow: hidden;
+      }
+
+      .card__shot img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .card:hover .card__shot img {
+        transform: scale(1.04);
+      }
+
+      .card__age {
+        margin: 0 0 8px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .card__body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 22px 24px 24px;
+        border-top: 4px solid var(--accent);
+      }
+
+      .card__title {
+        margin: 0;
+        font-family: var(--display);
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+      }
+
+      .card__sub {
+        display: block;
+        margin-top: 4px;
+        font-family: var(--sans);
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--ink-muted);
+        letter-spacing: 0;
+      }
+
+      .card__blurb {
+        margin: 10px 0 0;
+        font-size: 15px;
+        color: var(--ink-soft);
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .tags li {
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: var(--sand-100);
+        border: 1px solid var(--sand-200);
+        font-size: 12.5px;
+        font-weight: 500;
+        color: var(--ink-soft);
+      }
+
+      .card__foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 22px;
+      }
+
+      .device {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        color: var(--ink-muted);
+      }
+
+      .device svg {
+        flex: none;
+        width: 16px;
+        height: 16px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .play {
+        display: inline-flex;
+        flex: none;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+        transition: filter 0.2s;
+      }
+
+      .play svg {
+        width: 12px;
+        height: 12px;
+        fill: currentColor;
+      }
+
+      .card:hover .play {
+        filter: brightness(0.92);
+      }
+
+      /* The two feature cards read a step larger while they share a row. */
+      @media (min-width: 1024px) {
+        .card--feature .card__body {
+          padding: 26px 30px 28px;
+        }
+
+        .card--feature .card__title {
+          font-size: 32px;
+        }
+
+        .card--feature .card__blurb {
+          font-size: 16px;
+        }
+      }
+
+      /* Footer */
+      .foot {
+        border-top: 1px solid rgba(31, 26, 20, 0.08);
+        padding: 32px 0 48px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px 24px;
+        font-size: 14px;
+        color: var(--ink-muted);
+      }
+
+      .foot p {
+        margin: 0;
+      }
+
+      .foot a {
+        color: var(--ink-soft);
+        text-decoration-color: rgba(74, 65, 54, 0.35);
+        text-underline-offset: 3px;
+      }
+
+      .foot a:hover {
+        color: var(--clay);
+      }
+
+      @media (max-width: 640px) {
+        .wrap {
+          padding: 0 16px;
+        }
+
+        .bar {
+          height: 60px;
+        }
+
+        .intro {
+          padding: 44px 0 32px;
+        }
+
+        .lead {
+          font-size: 16px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+          margin-bottom: 64px;
+        }
+
+        .card__body {
+          padding: 18px 18px 20px;
+        }
+
+        .card__title {
+          font-size: 23px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .card,
+        .card__shot img,
+        .play {
+          transition: none;
+        }
+
+        .card:hover,
+        .card:hover .card__shot img {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="bar">
+        <a class="brand" href="/" aria-label="Bolt Interactive home">
+          <svg viewBox="0 0 448 512" aria-hidden="true">
+            <path
+              d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z"
+            />
+          </svg>
+          <span>BOLT</span>
+        </a>
+        <a class="bar__link" href="/">bolt-interactive.com</a>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="intro-title">
+          <p class="eyebrow">Kid Games</p>
+          <h1 id="intro-title">Little games that make learning feel like <em>play</em>.</h1>
+          <p class="lead">
+            Eight browser games for young learners, from the ABCs and making ten to times tables. Pick one, tap play,
+            and learn by playing.
+          </p>
+          <ul class="facts">
+            <li>Free to play</li>
+            <li>No sign-up, no ads</li>
+            <li>Runs in the browser</li>
+          </ul>
+        </section>
+
+        <!--
+          One card per game. The first two are the feature cards that share the top row
+          (class="feature"), then youngest first, so the other six fill two rows of three.
+          Each game is built into its own folder by
+          scripts/build-kid-games.mjs; thumbs/ holds a screenshot of each one in play.
+        -->
+        <ul class="grid" aria-label="Games">
+          <li class="feature">
+            <a class="card card--feature" href="/kid-game/make-ten-adventure/" style="--accent: #c43d68">
+              <div class="card__shot">
+                <img src="/kid-game/thumbs/make-ten-adventure.jpg" alt="Make Ten Adventure: an owl helps solve 8 + 3 with ten-frames of mice" width="960" height="600" />
+              </div>
+              <div class="card__body">
+                <p class="card__age">Ages 4 to 6</p>
+                <h2 class="card__title">Make Ten Adventure <span class="card__sub">凑十大冒险</span></h2>
+                <p class="card__blurb">Fill the ten-frames to solve sums like 8 + 3, with an owl guide who speaks English and Chinese.</p>
+                <ul class="tags">
+                  <li>Make ten</li>
+                  <li>Adding past ten</li>
+                  <li>English and 中文</li>
+                </ul>
+                <div class="card__foot">
+                  <span class="device">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.5a6 6 0 0 1-4.6-2.2L5 15.9a1.6 1.6 0 0 1 2.5-2L9 15.5" /></svg>
+                    Tap or click
+                  </span>
+                  <span class="play">Play <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.2v9.6L10.5 6z" /></svg></span>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li class="feature">
+            <a class="card card--feature" href="/kid-game/abc-quickdraw/" style="--accent: #b91c1c">
+              <div class="card__shot">
+                <img src="/kid-game/thumbs/abc-quickdraw.jpg" alt="ABC Quickdraw: a toy sheriff faces a carnival booth with the letters A to G lit up above the curtain" width="960" height="600" />
+              </div>
+              <div class="card__body">
+                <p class="card__age">Ages 4 to 7</p>
+                <h2 class="card__title">ABC Quickdraw</h2>
+                <p class="card__blurb">The letters A to F light up one beat at a time, each with its own note. Wait for G, then tap to quick-draw and knock the tin bandit off its spring. Watch out for the ducks!</p>
+                <ul class="tags">
+                  <li>Letters A to G</li>
+                  <li>Rhythm</li>
+                  <li>Waiting for the right moment</li>
+                </ul>
+                <div class="card__foot">
+                  <span class="device">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.5a6 6 0 0 1-4.6-2.2L5 15.9a1.6 1.6 0 0 1 2.5-2L9 15.5" /></svg>
+                    Tap or the space bar
+                  </span>
+                  <span class="play">Play <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.2v9.6L10.5 6z" /></svg></span>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a class="card" href="/kid-game/ninja-math-dojo/" style="--accent: #c2410c">
+              <div class="card__shot">
+                <img src="/kid-game/thumbs/ninja-math-dojo.jpg" alt="Ninja Math Dojo: a ninja under a torii gate with three numbered paper lanterns" width="960" height="600" loading="lazy" />
+              </div>
+              <div class="card__body">
+                <p class="card__age">Ages 4 to 6</p>
+                <h2 class="card__title">Ninja Math Dojo</h2>
+                <p class="card__blurb">Throw ninja stars at the lantern with the right answer. Every question is read aloud, and five right answers earn the next karate belt.</p>
+                <ul class="tags">
+                  <li>Counting</li>
+                  <li>Adding</li>
+                  <li>Taking away</li>
+                </ul>
+                <div class="card__foot">
+                  <span class="device">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.5a6 6 0 0 1-4.6-2.2L5 15.9a1.6 1.6 0 0 1 2.5-2L9 15.5" /></svg>
+                    Tap or click
+                  </span>
+                  <span class="play">Play <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.2v9.6L10.5 6z" /></svg></span>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a class="card" href="/kid-game/make-ten-and-friends/" style="--accent: #2b7a44">
+              <div class="card__shot">
+                <img src="/kid-game/thumbs/make-ten-and-friends.jpg" alt="Make Ten and Friends: three game cards, Make Ten, Doubles and Bridge to Ten" width="960" height="600" loading="lazy" />
+              </div>
+              <div class="card__body">
+                <p class="card__age">Ages 4 to 7</p>
+                <h2 class="card__title">Make Ten &amp; Friends</h2>
+                <p class="card__blurb">Three quick games in one: find the number that makes ten, count ladybug doubles, then bridge through ten.</p>
+                <ul class="tags">
+                  <li>Number bonds</li>
+                  <li>Doubles</li>
+                  <li>Bridge to ten</li>
+                </ul>
+                <div class="card__foot">
+                  <span class="device">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.5a6 6 0 0 1-4.6-2.2L5 15.9a1.6 1.6 0 0 1 2.5-2L9 15.5" /></svg>
+                    Tap or click
+                  </span>
+                  <span class="play">Play <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.2v9.6L10.5 6z" /></svg></span>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a class="card" href="/kid-game/make-ten-ninja/" style="--accent: #1d4ed8">
+              <div class="card__shot">
+                <img src="/kid-game/thumbs/make-ten-ninja.jpg" alt="Make-Ten Ninja: a platformer asking 5 + ? = 10 with numbered stars to collect" width="960" height="600" loading="lazy" />
+              </div>
+              <div class="card__body">
+                <p class="card__age">Ages 4 to 7</p>
+                <h2 class="card__title">Make-Ten Ninja</h2>
+                <p class="card__blurb">A little platformer: run, jump and grab the star that finishes the sum. Includes a Make-Twenty Dinosaur level for older players.</p>
+                <ul class="tags">
+                  <li>Make ten</li>
+                  <li>Make twenty</li>
+                </ul>
+                <div class="card__foot">
+                  <span class="device">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2" /><path d="M6 10h.01M9 10h.01M12 10h.01M15 10h.01M18 10h.01M8 14h8" /></svg>
+                    Keys or on-screen buttons
+                  </span>
+                  <span class="play">Play <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.2v9.6L10.5 6z" /></svg></span>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a class="card" href="/kid-game/ninja-math-worlds/" style="--accent: #7c3aed">
+              <div class="card__shot">
+                <img src="/kid-game/thumbs/ninja-math-worlds.jpg" alt="Ninja Math Worlds: a menu of four games, Dojo Take-Away, Jump and Stomp, Mac Donald Times and Dino Egg Drop" width="960" height="600" loading="lazy" />
+              </div>
+              <div class="card__body">
+                <p class="card__age">Ages 5 to 8</p>
+                <h2 class="card__title">Ninja Math Worlds</h2>
+                <p class="card__blurb">Four games in one: take-away in a 3D dojo, stomp the right answer, count burger boxes for times tables, and drop dino eggs to add.</p>
+                <ul class="tags">
+                  <li>Taking away</li>
+                  <li>Adding</li>
+                  <li>Times tables</li>
+                </ul>
+                <div class="card__foot">
+                  <span class="device">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.5a6 6 0 0 1-4.6-2.2L5 15.9a1.6 1.6 0 0 1 2.5-2L9 15.5" /></svg>
+                    Tap or click
+                  </span>
+                  <span class="play">Play <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.2v9.6L10.5 6z" /></svg></span>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a class="card" href="/kid-game/do-not-touch/" style="--accent: #b45309">
+              <div class="card__shot">
+                <img src="/kid-game/thumbs/do-not-touch.jpg" alt="Do Not Touch the Color: a ninja in a playground while the game calls Touch Brown" width="960" height="600" loading="lazy" />
+              </div>
+              <div class="card__body">
+                <p class="card__age">Ages 5 and up</p>
+                <h2 class="card__title">Do Not Touch the Color</h2>
+                <p class="card__blurb">Listen for the call, “Touch green!” or “Do not touch green!”, and run your ninja around the playground to get it right.</p>
+                <ul class="tags">
+                  <li>Listening</li>
+                  <li>Colors</li>
+                  <li>Quick thinking</li>
+                </ul>
+                <div class="card__foot">
+                  <span class="device">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2" /><path d="M6 10h.01M9 10h.01M12 10h.01M15 10h.01M18 10h.01M8 14h8" /></svg>
+                    Needs a keyboard
+                  </span>
+                  <span class="play">Play <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.2v9.6L10.5 6z" /></svg></span>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a class="card" href="/kid-game/times-strike/" style="--accent: #2f6f62">
+              <div class="card__shot">
+                <img src="/kid-game/thumbs/times-strike.jpg" alt="Times Strike: a sandy courtyard with crates and the question 4 × 4" width="960" height="600" loading="lazy" />
+              </div>
+              <div class="card__body">
+                <p class="card__age">Ages 8 and up</p>
+                <h2 class="card__title">Times Strike</h2>
+                <p class="card__blurb">A foam-dart academy for times tables: read the sum on the keypad and tag the training dummy wearing the answer. No blood, no real guns.</p>
+                <ul class="tags">
+                  <li>Times tables 2 to 12</li>
+                  <li>Skip counting</li>
+                </ul>
+                <div class="card__foot">
+                  <span class="device">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2" /><path d="M6 10h.01M9 10h.01M12 10h.01M15 10h.01M18 10h.01M8 14h8" /></svg>
+                    Keyboard and mouse, or touch
+                  </span>
+                  <span class="play">Play <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.2v9.6L10.5 6z" /></svg></span>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </main>
+
+      <footer class="foot">
+        <p>Made in Kuala Lumpur by <a href="/">Bolt Interactive</a>.</p>
+        <p>Nothing to install, nothing to sign up for.</p>
+      </footer>
+    </div>
+  </body>
+</html>

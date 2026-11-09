@@ -1,0 +1,148 @@
+/* Games hub (landing page) styling. Plain HTML/CSS — no Phaser needed here. */
+:root {
+  --ink: #2d3a4a;
+  --frame: #2d5b86;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: 'Fredoka', system-ui, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, #7ec8f0 0%, #bfe9ff 55%, #8fd36b 55%, #8fd36b 100%);
+  background-attachment: fixed;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hub {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.hub__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hub__title {
+  margin: 0;
+  font-size: clamp(40px, 7vw, 76px);
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 5px 0 rgba(0, 0, 0, 0.12), 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+.hub__subtitle {
+  margin: 10px 0 0;
+  font-size: clamp(18px, 2.6vw, 26px);
+  font-weight: 500;
+  color: var(--frame);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  border-radius: 24px;
+  padding: 26px 24px 24px;
+  box-shadow: 0 10px 30px rgba(45, 91, 134, 0.18);
+  border-top: 10px solid var(--card-accent, #4cc36b);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  overflow: hidden;
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 18px 40px rgba(45, 91, 134, 0.28);
+  outline: none;
+}
+
+.card__emoji {
+  font-size: 76px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.card__tagline {
+  margin: 6px 0 16px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #5b6b7d;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.tag {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: #eef4fb;
+  color: var(--frame);
+}
+
+.card__footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.age-badge {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5b6b7d;
+}
+
+.play-pill {
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--card-accent, #4cc36b);
+  padding: 9px 20px;
+  border-radius: 999px;
+}
+
+/* "Coming soon" state for games that aren't ready yet. */
+.card--soon {
+  filter: grayscale(0.55);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.card--soon .play-pill {
+  background: #9aa7b4;
+}
+
+.hub__footer {
+  text-align: center;
+  margin-top: 48px;
+  font-size: 15px;
+  color: var(--frame);
+  font-weight: 500;
+}
