@@ -1,6 +1,8 @@
+import { useLocation } from "react-router-dom";
 import { FaBolt } from "react-icons/fa6";
 import { FiCoffee } from "react-icons/fi";
 import { BRIEFING_LINK, EMAIL } from "../lib/contact";
+import AfterHours from "./AfterHours";
 
 const initiatives = [
   "CEO Consultation",
@@ -10,10 +12,15 @@ const initiatives = [
 ];
 
 export default function Footer() {
+  // The after-hours shelf stands on the footer's top edge, in the quiet strip
+  // the coffee section leaves above it, which only the homepage has.
+  const { pathname } = useLocation();
+
   return (
-    <footer className="bg-espresso py-16 text-sand-400">
+    <footer className="relative bg-espresso py-16 text-sand-400">
+      {pathname === "/" && <AfterHours />}
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-14 grid gap-12 md:grid-cols-4">
+        <div className="mb-14 grid gap-12 md:grid-cols-2 xl:grid-cols-4">
           <div className="md:col-span-2">
             <div className="mb-6 flex items-center gap-2 text-sand-50">
               <FaBolt className="text-xl text-clay-light" aria-hidden="true" />
