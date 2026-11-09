@@ -1,3 +1,5 @@
 /story /story/index.html 200
 /math-beauty /math-beauty/index.html 200
+/kid-game /kid-game/index.html 200
+/kid-game/:slug /kid-game/:slug/index.html 200
 /* /index.html 200

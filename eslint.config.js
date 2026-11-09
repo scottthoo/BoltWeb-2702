@@ -5,7 +5,8 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 
 export default [
-  { ignores: ['dist'] },
+  // public/kid-game holds built games from other repos (scripts/build-kid-games.mjs).
+  { ignores: ['dist', 'public/kid-game'] },
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {

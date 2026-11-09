@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/kid-game/ninja-math-worlds/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Ninja Math Worlds — Kids</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="/kid-game/ninja-math-worlds/assets/index-1KJhS2nt.js"></script>
+    <link rel="stylesheet" crossorigin href="/kid-game/ninja-math-worlds/assets/index-DQWedOW8.css">
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="game-canvas"></canvas>
+      <canvas id="platform-canvas" class="hidden"></canvas>
+      <canvas id="kitchen-canvas" class="hidden"></canvas>
+      <canvas id="dino-canvas" class="hidden"></canvas>
+      <canvas id="confetti-canvas"></canvas>
+      <div id="shake-layer"></div>
+
+      <div id="hud" class="hidden">
+        <div class="hud-top">
+          <div class="hud-top-row">
+            <div class="score-pill">
+              <span class="star-icon">⭐</span>
+              <span id="score">0</span>
+            </div>
+            <div id="world-badge" class="world-badge">Dojo</div>
+            <button id="btn-menu" class="btn-menu" type="button" title="Main Menu">☰ Menu</button>
+          </div>
+
+          <div id="stage-path" class="stage-path" aria-label="Adventure progress">
+            <div class="path-line" id="path-line"></div>
+            <div class="path-nodes" id="path-nodes">
+              <div class="stage-node" data-stage="1"><span>1</span></div>
+              <div class="stage-node" data-stage="2"><span>2</span></div>
+              <div class="stage-node" data-stage="3"><span>3</span></div>
+              <div class="stage-node" data-stage="4"><span>4</span></div>
+              <div class="stage-node boss-node" data-stage="5"><span>👹</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="boss-hud" class="boss-hud hidden">
+          <div class="boss-name" id="boss-name">👹 Shadow Boss</div>
+          <div class="boss-hp-track">
+            <div id="boss-hp-fill" class="boss-hp-fill"></div>
+          </div>
+          <div id="boss-hp-text" class="boss-hp-text">3 / 3</div>
+        </div>
+
+        <div id="problem-card" class="problem-card">
+          <div id="problem-label" class="problem-label">What is left?</div>
+          <div id="problem-text" class="problem-text">5 − 2 = ?</div>
+        </div>
+
+        <div id="answer-row" class="answer-row"></div>
+        <div id="platform-tip" class="platform-tip hidden">
+          ← → move · ↑ / Space jump · Stomp the number that answers the problem!
+        </div>
+        <div id="feedback" class="feedback hidden"></div>
+      </div>
+
+      <!-- Main menu (cards filled by registry) -->
+      <div id="main-menu" class="overlay menu-overlay">
+        <div class="panel menu-panel">
+          <div class="ninja-emoji">🥷</div>
+          <h1>Ninja Math Worlds</h1>
+          <p class="subtitle">Pick a game · Learn math the fun way!</p>
+          <div id="menu-games" class="menu-games"></div>
+          <p class="menu-foot">Take-away · Put together · Times · Share ready in code</p>
+        </div>
+      </div>
+
+      <!-- Shared per-game intro -->
+      <div id="game-intro" class="overlay hidden">
+        <div class="panel start-panel">
+          <div id="intro-emoji" class="ninja-emoji">🏯</div>
+          <h1 id="intro-title">Game</h1>
+          <p id="intro-subtitle" class="subtitle">World</p>
+          <p id="intro-howto" class="how-to"></p>
+          <button id="btn-intro-start" class="btn btn-primary">Start!</button>
+          <button id="btn-intro-back" class="btn btn-ghost">← Main Menu</button>
+        </div>
+      </div>
+
+      <div id="stage-banner" class="stage-banner hidden">
+        <div class="stage-banner-inner">
+          <div id="stage-banner-emoji">⭐</div>
+          <div id="stage-banner-text">Stage Clear!</div>
+        </div>
+      </div>
+
+      <div id="celebrate-screen" class="overlay hidden">
+        <div class="panel celebrate-panel">
+          <div class="celebrate-emoji">🏆</div>
+          <h2 id="celebrate-title">Boss Defeated!</h2>
+          <p id="celebrate-msg">You are a Ninja Master!</p>
+          <button id="btn-celebrate-menu" class="btn btn-primary">Main Menu</button>
+          <button id="btn-celebrate-replay" class="btn btn-ghost">Play Again</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#cfe8fb" />
+    <title>Do not touch the color</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%235fc04a'/%3E%3Cpath d='M16 16L48 48M48 16L16 48' stroke='%23fff' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <script type="module" crossorigin src="/kid-game/do-not-touch/assets/index-BzBVNVq1.js"></script>
+    <link rel="stylesheet" crossorigin href="/kid-game/do-not-touch/assets/index-BK-ybDhM.css">
+  </head>
+  <body>
+    <main id="game" aria-label="Do not touch the color">
+      <div id="stage"></div>
+
+      <div class="letterbox letterbox-top" aria-hidden="true"></div>
+      <div class="letterbox letterbox-bottom" aria-hidden="true"></div>
+
+      <section class="call is-touch" id="call" aria-live="polite">
+        <!-- Tick or cross on the called color: the whole call for a player who cannot read yet. -->
+        <div class="call-badge" id="call-badge" aria-hidden="true">
+          <svg viewBox="0 0 100 100">
+            <circle class="badge-disc" cx="50" cy="50" r="41" />
+            <g class="badge-cross">
+              <path class="badge-edge" d="M33 33 67 67M67 33 33 67" />
+              <path class="badge-mark" d="M33 33 67 67M67 33 33 67" />
+            </g>
+            <g class="badge-tick">
+              <path class="badge-edge" d="M29 53 44 67 72 35" />
+              <path class="badge-mark" d="M29 53 44 67 72 35" />
+            </g>
+          </svg>
+        </div>
+        <div class="call-text">
+          <div class="call-lead"><span id="call-lead">Touch</span><span class="call-dots" id="call-dots"></span></div>
+          <div class="call-word" id="call-word"></div>
+        </div>
+      </section>
+
+      <aside class="hud">
+        <div class="timer" id="timer">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <circle class="timer-track" cx="32" cy="32" r="26" />
+            <circle class="timer-edge" id="timer-edge" cx="32" cy="32" r="26" />
+            <circle class="timer-arc" id="timer-arc" cx="32" cy="32" r="26" />
+          </svg>
+          <span class="timer-num" id="timer-num">-</span>
+        </div>
+        <dl class="stats">
+          <div class="stat"><dt>Score</dt><dd id="score">0.0</dd></div>
+          <div class="stat"><dt>Best</dt><dd id="best">0.0</dd></div>
+        </dl>
+      </aside>
+
+      <footer class="hint" id="hint">
+        <span class="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span> move
+        <span class="dot">·</span>
+        <kbd>K</kbd> punch
+        <span class="dot">·</span>
+        <kbd class="wide">Esc</kbd> pause
+      </footer>
+
+      <div class="replay-tag" id="replay-tag"><span class="rec"></span>REPLAY</div>
+
+      <section class="death" id="death" aria-live="assertive">
+        <div class="death-card">
+          <p class="death-title" id="death-title">Splat!</p>
+          <p class="death-touched"><span id="death-verb">You touched</span> <span class="chip" id="death-color">Green</span></p>
+          <p class="death-score"><span id="death-score">0.0</span><small>s</small></p>
+          <p class="death-best" id="death-best">Best 0.0s</p>
+          <p class="death-cta"><kbd>R</kbd> Press R to play again</p>
+          <div class="death-bar"><i id="death-bar"></i></div>
+        </div>
+      </section>
+
+      <section class="pause" id="pause">
+        <div class="pause-card">
+          <p class="pause-title">Paused</p>
+          <p class="pause-sub">Press <kbd class="wide">Esc</kbd> to keep playing</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

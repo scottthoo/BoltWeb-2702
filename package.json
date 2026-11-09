@@ -8,6 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "icons": "node scripts/build-icons.js",
+    "kid-games": "node scripts/build-kid-games.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

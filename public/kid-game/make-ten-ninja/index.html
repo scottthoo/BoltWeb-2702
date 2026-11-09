@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Game Library</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: #0f0f1a;
+        color: #f5f5f5;
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+      }
+      .wrap {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 40px 20px 64px;
+      }
+      header h1 {
+        margin: 0 0 6px;
+        font-size: 32px;
+      }
+      header p {
+        margin: 0 0 32px;
+        color: #9aa0b5;
+        font-size: 16px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+        gap: 20px;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 18px;
+        border-radius: 16px;
+        background: #16162a;
+        border: 1px solid #262640;
+        text-decoration: none;
+        color: inherit;
+        transition:
+          transform 0.12s ease,
+          border-color 0.12s ease;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent, #e94560);
+      }
+      .swatch {
+        height: 64px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .swatch .dot {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+      }
+      .card h2 {
+        margin: 4px 0 0;
+        font-size: 19px;
+      }
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        font-size: 12px;
+        color: #9aa0b5;
+      }
+      .tag {
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #20203a;
+        border: 1px solid #2c2c4c;
+      }
+      .tag.preview {
+        color: #0f0f1a;
+        background: var(--accent, #e94560);
+        border-color: transparent;
+        font-weight: 600;
+      }
+      .play {
+        margin-top: auto;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--accent, #e94560);
+      }
+      .empty {
+        color: #9aa0b5;
+      }
+    </style>
+    <script type="module" crossorigin src="/kid-game/make-ten-ninja/assets/index-CcIngyFY.js"></script>
+    <link rel="modulepreload" crossorigin href="/kid-game/make-ten-ninja/assets/games-B8ZK9eU-.js">
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Math Game Library</h1>
+        <p>Pick a game to play. New games appear here as they are generated.</p>
+      </header>
+      <main id="library" class="grid"></main>
+    </div>
+  </body>
+</html>
