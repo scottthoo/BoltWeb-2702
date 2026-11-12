@@ -1,1 +1,13 @@
-{"rewrites": [{"source": "/story", "destination": "/story/index.html"}, {"source": "/math-beauty", "destination": "/math-beauty/index.html"}, {"source": "/kid-game", "destination": "/kid-game/index.html"}, {"source": "/kid-game/:slug", "destination": "/kid-game/:slug/index.html"}, {"source": "/ai-consultation", "destination": "/ai-consultation/index.html"}, {"source": "/lovely-sop", "destination": "/lovely-sop/index.html"}, {"source": "/(.*)", "destination": "/index.html"}]}
+{
+  "rewrites": [
+    { "source": "/story", "destination": "/story/index.html" },
+    { "source": "/math-beauty", "destination": "/math-beauty/index.html" },
+    { "source": "/kid-game", "destination": "/kid-game/index.html" },
+    { "source": "/kid-game/:slug", "destination": "/kid-game/:slug/index.html" },
+    { "source": "/ai-consultation", "destination": "/ai-consultation/index.html" },
+    { "source": "/lovely-sop", "destination": "/lovely-sop/index.html" },
+    { "source": "/sling-bowl", "destination": "/sling-bowl/index.html" },
+    { "source": "/sling-bowl/privacy", "destination": "/sling-bowl/privacy/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

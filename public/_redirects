@@ -4,4 +4,6 @@
 /kid-game/:slug /kid-game/:slug/index.html 200
 /ai-consultation /ai-consultation/index.html 200
 /lovely-sop /lovely-sop/index.html 200
+/sling-bowl /sling-bowl/index.html 200
+/sling-bowl/privacy /sling-bowl/privacy/index.html 200
 /* /index.html 200
