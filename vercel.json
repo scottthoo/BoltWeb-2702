@@ -8,6 +8,9 @@
     { "source": "/lovely-sop", "destination": "/lovely-sop/index.html" },
     { "source": "/sling-bowl", "destination": "/sling-bowl/index.html" },
     { "source": "/sling-bowl/privacy", "destination": "/sling-bowl/privacy/index.html" },
+    { "source": "/owlyay", "destination": "/owlyay/index.html" },
+    { "source": "/owlyay/privacy", "destination": "/owlyay/privacy/index.html" },
+    { "source": "/owlyay/proposal", "destination": "/owlyay/proposal/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
